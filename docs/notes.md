@@ -7,6 +7,8 @@
     python -m venv .venv
     .\.venv\Scripts\Activate o también... source .venv/bin/activate
 
+    Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+
     pip install flask
     pip install mysql-connector-python
 
