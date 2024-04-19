@@ -9,20 +9,22 @@
             <img class="mx-auto h-20 w-auto" src="{{ url_for('static', filename='Img/Logo.png') }}" alt="Your Company">
             <h2 class="mt-5 px-20 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Registrate</h2>
             </div>
-        
+        <!-- action="#" -->
             <div class="mt-5 sm:mx-auto sm:w-full sm:max-w-sm">
-            <form class="space-y-6" action="#" method="POST">
+            <form id="formulario" class="space-y-6 needs-validation" 
+            
+             method="POST" novalidate>
                 <div>
                 <label for="name" class="block text-sm font-medium leading-6 text-gray-900">Nombre</label>
                 <div class="mt-2">
-                    <input id="name" name="name" type="text" autocomplete="name" required class="block w-full rounded-md px-2 border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                    <input id="nombre" name="name" type="text" autocomplete="name" pattern="^[a-zA-Z\sáéíóúñÁÉÍÓÚ]+$" required class="block w-full rounded-md px-2 border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                 </div>
                 </div>
 
                 <div>
                 <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Correo</label>
                 <div class="mt-2">
-                    <input id="email" name="email" type="email" autocomplete="email" required class="block w-full rounded-md px-2 border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                    <input id="correo" name="email" type="email" autocomplete="email" required class="block w-full rounded-md px-2 border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                 </div>
                 </div>
         
@@ -31,7 +33,7 @@
                     <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Contraseña</label>
                 </div>
                 <div class="mt-2">
-                    <input id="password" name="password" type="password" autocomplete="new-password" required class="block w-full rounded-md px-2 border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                    <input id="contraseña" name="password" type="password" autocomplete="new-password" required class="block w-full rounded-md px-2 border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                 </div>
                 </div>
         
@@ -49,6 +51,25 @@
     </div>
 
     <div class="absolute top-0 -z-20 bg-cover h-[100vh] w-[100vw]" style=" background-image: url( {{ url_for('static', filename='Img/Login.jpg') }} ) "> </div>
+
+    <script>
+        // document.addEventListener('DOMContentLoaded', function() {
+        //     const form = document.getElementById('formulario');
+        //     const btnSubmit = document.getElementById('btnSubmit');
+
+        //     form.addEventListener('input', function() {
+        //         const nombre = document.getElementById('nombre').value.trim();
+        //         const correo = document.getElementById('correo').value.trim();
+        //         const contraseña = document.getElementById('contraseña').value.trim();
+
+        //         if (nombre !== '' && correo !== '' && contraseña !== '') {
+        //             btnSubmit.removeAttribute('disabled');
+        //         } else {
+        //             btnSubmit.setAttribute('disabled', 'disabled');
+        //         }
+        //     });
+        // });
+    </script>
 
 
     {% endblock %}
