@@ -10,20 +10,20 @@ task = Task()
 @app.route("/")
 def index():
     try:
-        return render_template("index.html")
+        return render_template("Login.html")
     except Exception as e:
         return f"An error occurred: {str(e)}"
 
 
-@app.route("/login")
+@app.route("/Register")
 def login():
     try:
-        return render_template("accounts/login.html")
+        return render_template("Register.html")
     except Exception as e:
         return f"An error occurred: {str(e)}"
 
 
-@app.route("/register")
+@app.route("/AAA")
 def register():
     try:
         return render_template("accounts/register.html")
