@@ -1,5 +1,6 @@
 # Paquetes de instalación.
-
+---
+   
     python --version
     python.exe -m pip install --upgrade pip o también... pip install --upgrade pip
 
@@ -12,7 +13,8 @@
 
     pip install <<biblioteca>>
 
-# Ejecución del código.
+## Ejecución del código.
+---
 
     python run.py
     python <<Archivo>>.py
