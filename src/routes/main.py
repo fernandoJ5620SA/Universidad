@@ -17,7 +17,5 @@ def index():
 def header():
     return render_template('header.html')
 
-@main_bp.route('/register.html')
-def register():
-    return render_template('register.html')
+
 
