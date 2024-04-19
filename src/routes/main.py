@@ -6,5 +6,5 @@ main_bp = Blueprint("main", __name__, template_folder="../templates")
 
 # Definir rutas dentro del blueprint
 @main_bp.route("/")
-def home():
+def index():
     return render_template("index.html")
