@@ -12,4 +12,4 @@ def login():
 
 @account_bp.route("/register")
 def register():
-    return render_template("login.html")
+    return render_template("Register.html")
