@@ -5,8 +5,7 @@ from src.routes.main import main_bp
 from src.routes.account import account_bp
 
 # Crear una instancia de la aplicación Flask
-app = Flask(__name__)
-
+app = Flask(__name__, static_folder="src/static")
 
 # Registrar el blueprint en la aplicación
 app.register_blueprint(main_bp)
