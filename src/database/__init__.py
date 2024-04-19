@@ -1,4 +1,3 @@
-
 # Importando Libreria mysql.connector para conectar Python con MySQL
 # pip install mysql-connector-python
 
