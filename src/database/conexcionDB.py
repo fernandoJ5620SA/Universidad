@@ -3,12 +3,10 @@
 
 import mysql.connector
 
+
 def connectionBD():
     mydb = mysql.connector.connect(
-        host="localhost",
-        user="root",
-        passwd="1423#Ghz1233",
-        database="Universidad"
+        host="localhost", user="root", passwd="", database="universidad"
     )
 
     return mydb
