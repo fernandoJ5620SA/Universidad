@@ -11,7 +11,7 @@ def login():
 
 @account_bp.route('/register')
 def register():
-    return render_template("Register.html")
+    return render_template('register.html')
 
 #que haces cedrick
 # @account_bp.route("/register")
