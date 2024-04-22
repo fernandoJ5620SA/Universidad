@@ -13,7 +13,7 @@ def conexionBD():
     mydb = connectionBD()
 
 # Definir rutas dentro del blueprint
-@auth_bp.route("/login", methods=["GET", "POST"])
+@auth_bp.route("/login", methods=['GET',"POST"])
 def login():
     src.controllers.AuthController.auth_user()
     return render_template("login.html")
@@ -56,6 +56,4 @@ def register():
         except Exception as e:
                 print('Error', e)
                 conn.rollback()
-
-        # return f'Usuario registrado: {nombre}, {correo}, {password_hash}'
     return render_template("register.html")
