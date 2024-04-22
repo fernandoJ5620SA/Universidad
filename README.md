@@ -1,6 +1,7 @@
 # Paquetes de instalación.
+
 ---
-   
+
     python --version
     python.exe -m pip install --upgrade pip o también... pip install --upgrade pip
 
@@ -9,11 +10,12 @@
     .\.venv\Scripts\Activate o también... source .venv/bin/activate
 
     pip install flask
-    pip install flask_mysqldb
+    pip install mysql-connector-python
 
     pip install <<biblioteca>>
 
 ## Ejecución del código.
+
 ---
 
     python run.py
