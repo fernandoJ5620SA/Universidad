@@ -30,7 +30,7 @@ def register():
 
         if password != password_confirm:
             msg = 'ingrese correctamente la contraseña'
-            return render_template('login.html', msg=msg)
+            return render_template('register.html', msg=msg)
 
         conn = connectionBD()
 
@@ -40,7 +40,10 @@ def register():
             cursor.execute("SELECT MAX(user_id) FROM useruni")
             last_user_id = cursor.fetchone()[0]
 
-            new_user_ud = last_user_id + 1
+            if last_user_id is None:
+                 new_user_ud = 1
+            else:
+                 new_user_ud = last_user_id + 1
 
             sql = 'INSERT INTO useruni(User_id, name, email, password) VALUES (%s,%s, %s, %s)'
             cursor.execute(sql, (new_user_ud,name, email, password_hash))
