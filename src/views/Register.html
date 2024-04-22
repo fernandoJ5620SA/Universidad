@@ -14,11 +14,11 @@
             </div>
             <!-- action="#" -->
             <div class="mt-5 sm:mx-auto sm:w-full sm:max-w-sm">
-                <form id="formulario" class="space-y-6 needs-validation" method="POST" novalidate>
+                <form action="{{ url_for('auth.register')}}" id="formulario" class="space-y-6 needs-validation" method="POST">
                     <div>
                         <label for="name" class="block text-sm font-medium leading-6 text-gray-900">Nombre</label>
                         <div class="mt-2">
-                            <input id="nombre" name="name" type="text" autocomplete="name"
+                            <input id="name" name="name" type="text" autocomplete="name"
                                 pattern="^[a-zA-Z\sáéíóúñÁÉÍÓÚ]+$" required
                                 class="block w-full rounded-md px-2 border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                         </div>
@@ -38,10 +38,25 @@
                                 class="block text-sm font-medium leading-6 text-gray-900">Contraseña</label>
                         </div>
                         <div class="mt-2">
-                            <input id="contraseña" name="password" type="password" autocomplete="new-password" required
+                            <input id="password" name="password" type="password" autocomplete="new-password" required
                                 class="block w-full rounded-md px-2 border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                         </div>
                     </div>
+
+                    <div>
+                        {% if msg %}
+                            <p>{{ msg }}</p>
+                        {% endif %}
+                        <div class="flex items-center justify-between">
+                            <label for="password"
+                                class="block text-sm font-medium leading-6 text-gray-900">Confirmar contraseña</label>
+                        </div>
+                        <div class="mt-2">
+                            <input id="passwordconfirm" name="passwordconfirm" type="password" autocomplete="new-password" required
+                                class="block w-full rounded-md px-2 border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                        </div>
+                    </div>
+
 
                     <div>
                         <button type="submit"
