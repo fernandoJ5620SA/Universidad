@@ -2,7 +2,6 @@
 from flask import Flask
 
 from src.routes.main import main_bp
-from src.routes.account import account_bp
 from src.routes.admin import admin_bp
 
 from src.routes.auth import auth_bp
@@ -12,7 +11,6 @@ app = Flask(__name__, static_folder="src/static")
 
 # Registrar el blueprint en la aplicación
 app.register_blueprint(main_bp)
-app.register_blueprint(account_bp)
 app.register_blueprint(admin_bp)
 app.register_blueprint(auth_bp)
 
