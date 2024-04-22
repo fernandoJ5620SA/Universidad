@@ -3,6 +3,8 @@ from flask import Flask
 
 from src.routes.main import main_bp
 from src.routes.account import account_bp
+from src.routes.admin import admin_bp
+
 
 # Crear una instancia de la aplicación Flask
 app = Flask(__name__, static_folder="src/static")
@@ -10,6 +12,7 @@ app = Flask(__name__, static_folder="src/static")
 # Registrar el blueprint en la aplicación
 app.register_blueprint(main_bp)
 app.register_blueprint(account_bp)
+app.register_blueprint(admin_bp)
 
 if __name__ == "__main__":
     app.run(debug=True, port=8000, host="0.0.0.0")
