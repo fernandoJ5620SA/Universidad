@@ -15,8 +15,32 @@ def conexionBD():
 # Definir rutas dentro del blueprint
 @auth_bp.route("/login", methods=['GET',"POST"])
 def login():
-    src.controllers.AuthController.auth_user()
-    return render_template("login.html")
+        msg = ''
+        if request.method == 'POST' and 'email' in request.form and 'password' in request.form:
+            email = request.form['email']
+            password = request.form['password']
+            password_hash = hashlib.sha256(password.encode()).hexdigest()
+
+            conn = connectionBD()
+            cursor = conn.cursor(dictionary=True)
+            try:
+                cursor.execute('SELECT * FROM useruni WHERE email = % s AND password = % s', (email, password_hash ))
+                account = cursor.fetchone()
+                if account:
+                    session['loggedin'] = True
+                    session['id'] = account['id']
+                    session['username'] = account['username']
+                    msg = 'Logged in successfully !'
+                    return render_template('layouts/dashboard_alumnos.html', msg = msg)
+                else:
+                    msg = 'Incorrect email / password !'
+            except Exception as e:
+                    msg = "un error ocurrio: {}".format(e)
+            finally:
+                    cursor.close()
+        return render_template('layouts/dashboard_alumnos.html', msg = msg)
+    # src.controllers.AuthController.auth_user()
+    # return render_template("login.html")
 
 
 @auth_bp.route("/register", methods = ['GET', 'POST'])
