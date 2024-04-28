@@ -8,6 +8,7 @@ from src.routes.auth import auth_bp
 
 # Crear una instancia de la aplicación Flask
 app = Flask(__name__, static_folder="src/static")
+app.secret_key = 'gil_se_la_come'
 
 # Registrar el blueprint en la aplicación
 app.register_blueprint(main_bp)
