@@ -23,8 +23,8 @@ def auth_user():
                 else:
                     return render_template('login.html', msg= 'Correo y contraseña incorrectos')
             except Exception as e:
-                 print("A ocurrido el error desdepues antes de ingresar", e)
-                #  msg = "A ocurrido un error: {}".format(e)
+                #  print("A ocurrido el error desdepues antes de ingresar", e)
+                 msg = "A ocurrido un error: {}".format(e)
             finally:
                  cursor.close()
                  conn.close()
