@@ -185,9 +185,78 @@
 
                         </div>
                         <a href="#"
-                            class="border-2 border-blue-600 rounded-lg px-3 py-2 text-blue-400 cursor-pointer hover:bg-blue-600 hover:text-blue-200">
-                            Agregar Producto
-                        </a>
+                            class="border-2 border-blue-600 rounded-lg px-3 py-2 text-blue-400 cursor-pointer hover:bg-blue-600 hover:text-blue-200"
+                            onclick="openModal()">Agregar Materia</a>
+
+                        <!-- Agregar Materia Modal -->
+                        <div id="agregarProductoModal"
+                            class="fixed inset-0 z-10 overflow-y-auto hidden bg-gray-500 bg-opacity-75 flex items-center justify-center">
+                            <div class="bg-white rounded-lg shadow-xl mx-4 md:max-w-6xl w-full">
+                                <div class="text-center p-5">
+                                    <h3 class="text-2xl font-semibold mb-4">Agregar Materia</h3>
+                                    <!-- Formulario de agregar materia -->
+                                    <form action="#" method="POST">
+                                        <!-- CSRF token for security -->
+                                        <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+
+                                        <div class="mb-4">
+                                            <label for="id_materia"
+                                                class="block text-lg font-medium text-gray-700 text-left">ID de la
+                                                Materia</label>
+                                            <input type="text" id="id_materia" name="id_materia"
+                                                class="mt-1 p-2 border border-gray-300 rounded-md w-full"
+                                                placeholder="Ingrese el ID de la materia" required>
+                                        </div>
+                                        <div class="mb-4">
+                                            <label for="nombre_Materia"
+                                                class="block text-lg font-medium text-gray-700 text-left">Nombre de la
+                                                Materia</label>
+                                            <input type="text" id="nombre_Materia" name="nombre_Materia"
+                                                class="mt-1 p-2 border border-gray-300 rounded-md w-full"
+                                                placeholder="Ingrese el nombre de la materia" required>
+                                        </div>
+                                        <div class="mb-4">
+                                            <label for="Cred_Materia"
+                                                class="block text-lg font-medium text-gray-700 text-left">Créditos de la
+                                                Materia</label>
+                                            <input type="number" id="Cred_Materia" name="Cred_Materia"
+                                                class="mt-1 p-2 border border-gray-300 rounded-md w-full"
+                                                placeholder="Ingrese los créditos de la materia" required>
+                                        </div>
+                                        <div class="mb-4">
+                                            <label for="Requisitos_Previos"
+                                                class="block text-lg font-medium text-gray-700 text-left">Requisitos
+                                                Previos</label>
+                                            <input type="text" id="Requisitos_Previos" name="Requisitos_Previos"
+                                                class="mt-1 p-2 border border-gray-300 rounded-md w-full"
+                                                placeholder="Ingrese los requisitos previos si los hay">
+                                        </div>
+                                        <div class="mb-4">
+                                            <label for="Uni_Grupos_Cve_grupo"
+                                                class="block text-lg font-medium text-gray-700 text-left">Clave del
+                                                Grupo</label>
+                                            <input type="text" id="Uni_Grupos_Cve_grupo" name="Uni_Grupos_Cve_grupo"
+                                                class="mt-1 p-2 border border-gray-300 rounded-md w-full"
+                                                placeholder="Ingrese la clave del grupo" required>
+                                        </div>
+
+                                        <div class="flex justify-end pt-4">
+                                            <button type="submit"
+                                                class="bg-blue-500 text-white px-4 py-2 rounded-md mr-2 focus:outline-none focus:shadow-outline">
+                                                Agregar
+                                            </button>
+                                            <button type="button"
+                                                class="bg-gray-300 text-gray-700 px-4 py-2 rounded-md focus:outline-none focus:shadow-outline"
+                                                onclick="closeModal()">
+                                                Cancelar
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+
                     </div>
                 </div>
                 <div
@@ -241,14 +310,57 @@
 
                                 <td
                                     class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-500 text-sm leading-5">
-                                    <form action="#" method="POST">
-                                        @csrf
-                                        <input type="hidden" name="id" value="1">
-                                        <a href="#"
-                                            class="px-4 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">Editar</a>
-                                        <button type="submit"
-                                            class="px-4 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">Eliminar</button>
-                                    </form>
+                                    <input type="hidden" name="id" value="1">
+                                    <a href="#"
+                                        class="px-4 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">Editar</a>
+                                    <button onclick="openDeleteModal()"
+                                        class="px-4 py-2 border-red-500 border text-red-500 rounded transition duration-300 hover:bg-red-700 hover:text-white focus:outline-none">Eliminar</button>
+
+                                    <!-- Modal de Confirmación de Eliminación -->
+                                    <div id="deleteModal" class="fixed inset-0 z-10 hidden overflow-y-auto">
+                                        <div
+                                            class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+                                            <div class="fixed inset-0 transition-opacity" aria-hidden="true">
+                                                <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+                                            </div>
+
+                                            <!-- Este elemento es para centrar el contenido del modal verticalmente. -->
+                                            <span class="hidden sm:inline-block sm:align-middle sm:h-screen"
+                                                aria-hidden="true">&#8203;</span>
+
+                                            <div
+                                                class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+                                                <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                                                    <div class="sm:flex sm:items-start">
+                                                        <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                                                            <h3 class="text-2xl leading-6 font-medium text-gray-900"
+                                                                id="modal-headline">
+                                                                Confirmación de Eliminación
+                                                            </h3>
+                                                            <div class="mt-2">
+                                                                <p class="text-lg text-gray-500">
+                                                                    ¿Estás seguro de que deseas eliminar este elemento?
+                                                                    Esta acción es irreversible.
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                                                    <button type="button"
+                                                        class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm"
+                                                        onclick="closeDeleteModal()">
+                                                        Aceptar
+                                                    </button>
+                                                    <button type="button"
+                                                        class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+                                                        onclick="closeDeleteModal()">
+                                                        Cancelar
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </td>
                             </tr>
                             {% endfor %}
@@ -262,6 +374,29 @@
         </div>
 
     </div>
+
+    <script>
+        // Función para abrir el modal
+        function openModal() {
+            document.getElementById('agregarProductoModal').classList.remove('hidden');
+            document.getElementById('agregarProductoModal').classList.add('flex');
+        }
+
+        // Función para cerrar el modal
+        function closeModal() {
+            document.getElementById('agregarProductoModal').classList.remove('flex');
+            document.getElementById('agregarProductoModal').classList.add('hidden');
+        }
+
+        function openDeleteModal() {
+            document.getElementById('deleteModal').style.display = 'block';
+        }
+
+        function closeDeleteModal() {
+            document.getElementById('deleteModal').style.display = 'none';
+        }
+    </script>
+
 
     {#- {% include 'web/pages/alerts.html' %} #}
 
