@@ -6,8 +6,6 @@ from src.controllers.AuthController import auth_user, salir , register_user
 # Crear un blueprint
 auth_bp = Blueprint("auth", __name__, template_folder="../views")
 
-
-
 # Definir rutas dentro del blueprint
 @auth_bp.route("/login", methods=['GET',"POST"])
 def login():
@@ -18,8 +16,6 @@ def login():
 @auth_bp.route("/logout")
 def logout():
     return salir()
-
-
 
 @auth_bp.route("/register", methods = ['GET', 'POST'])
 def register():
