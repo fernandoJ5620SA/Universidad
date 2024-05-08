@@ -31,24 +31,22 @@
             animation-name: fadeOut;
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
+        <blade keyframes|%20fadeIn%20%7B%0D>from {
+            opacity: 0;
         }
 
-        @keyframes fadeOut {
-            from {
-                opacity: 1;
-            }
+        to {
+            opacity: 1;
+        }
+        }
 
-            to {
-                opacity: 0;
-            }
+        <blade keyframes|%20fadeOut%20%7B%0D>from {
+            opacity: 1;
+        }
+
+        to {
+            opacity: 0;
+        }
         }
     </style>
 </head>
@@ -197,7 +195,8 @@
 
         <header class="bg-white shadow">
             <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-                <h1 class="text-3xl font-bold tracking-tight text-gray-900">Dashboard</h1>
+                <a href="{{ url_for('admin.index') }}"
+                    class="text-3xl font-bold tracking-tight text-gray-900">Regresar</a>
             </div>
         </header>
 
@@ -228,86 +227,87 @@
                             </div>
 
                         </div>
-<<<<<<< HEAD
-                        <a href="#"
+                        <<<<<<< HEAD <a href="#"
                             class="border-2 border-blue-600 rounded-lg px-3 py-2 text-blue-400 cursor-pointer hover:bg-blue-600 hover:text-blue-200"
                             onclick="openModal()">Agregar Materia</a>
 
-                        <!-- Agregar Materia Modal -->
-                        <div id="agregarProductoModal"
-                            class="fixed inset-0 z-10 overflow-y-auto hidden bg-gray-500 bg-opacity-75 flex items-center justify-center">
-                            <div class="bg-white rounded-lg shadow-xl mx-4 md:max-w-6xl w-full">
-                                <div class="text-center p-5">
-                                    <h3 class="text-2xl font-semibold mb-4">Agregar Materia</h3>
-                                    <!-- Formulario de agregar materia -->
-                                    <form action="#" method="POST">
-                                        <!-- CSRF token for security -->
-                                        <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                            <!-- Agregar Materia Modal -->
+                            <div id="agregarProductoModal"
+                                class="fixed inset-0 z-10 overflow-y-auto hidden bg-gray-500 bg-opacity-75 flex items-center justify-center">
+                                <div class="bg-white rounded-lg shadow-xl mx-4 md:max-w-6xl w-full">
+                                    <div class="text-center p-5">
+                                        <h3 class="text-2xl font-semibold mb-4">Agregar Materia</h3>
+                                        <!-- Formulario de agregar materia -->
+                                        <form action="#" method="POST">
+                                            <!-- CSRF token for security -->
+                                            <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
 
-                                        <div class="mb-4">
-                                            <label for="id_materia"
-                                                class="block text-lg font-medium text-gray-700 text-left">ID de la
-                                                Materia</label>
-                                            <input type="text" id="id_materia" name="id_materia"
-                                                class="mt-1 p-2 border border-gray-300 rounded-md w-full"
-                                                placeholder="Ingrese el ID de la materia" required>
-                                        </div>
-                                        <div class="mb-4">
-                                            <label for="nombre_Materia"
-                                                class="block text-lg font-medium text-gray-700 text-left">Nombre de la
-                                                Materia</label>
-                                            <input type="text" id="nombre_Materia" name="nombre_Materia"
-                                                class="mt-1 p-2 border border-gray-300 rounded-md w-full"
-                                                placeholder="Ingrese el nombre de la materia" required>
-                                        </div>
-                                        <div class="mb-4">
-                                            <label for="Cred_Materia"
-                                                class="block text-lg font-medium text-gray-700 text-left">Créditos de la
-                                                Materia</label>
-                                            <input type="number" id="Cred_Materia" name="Cred_Materia"
-                                                class="mt-1 p-2 border border-gray-300 rounded-md w-full"
-                                                placeholder="Ingrese los créditos de la materia" required>
-                                        </div>
-                                        <div class="mb-4">
-                                            <label for="Requisitos_Previos"
-                                                class="block text-lg font-medium text-gray-700 text-left">Requisitos
-                                                Previos</label>
-                                            <input type="text" id="Requisitos_Previos" name="Requisitos_Previos"
-                                                class="mt-1 p-2 border border-gray-300 rounded-md w-full"
-                                                placeholder="Ingrese los requisitos previos si los hay">
-                                        </div>
-                                        <div class="mb-4">
-                                            <label for="Uni_Grupos_Cve_grupo"
-                                                class="block text-lg font-medium text-gray-700 text-left">Clave del
-                                                Grupo</label>
-                                            <input type="text" id="Uni_Grupos_Cve_grupo" name="Uni_Grupos_Cve_grupo"
-                                                class="mt-1 p-2 border border-gray-300 rounded-md w-full"
-                                                placeholder="Ingrese la clave del grupo" required>
-                                        </div>
+                                            <div class="mb-4">
+                                                <label for="id_materia"
+                                                    class="block text-lg font-medium text-gray-700 text-left">ID de la
+                                                    Materia</label>
+                                                <input type="text" id="id_materia" name="id_materia"
+                                                    class="mt-1 p-2 border border-gray-300 rounded-md w-full"
+                                                    placeholder="Ingrese el ID de la materia" required>
+                                            </div>
+                                            <div class="mb-4">
+                                                <label for="nombre_Materia"
+                                                    class="block text-lg font-medium text-gray-700 text-left">Nombre de
+                                                    la
+                                                    Materia</label>
+                                                <input type="text" id="nombre_Materia" name="nombre_Materia"
+                                                    class="mt-1 p-2 border border-gray-300 rounded-md w-full"
+                                                    placeholder="Ingrese el nombre de la materia" required>
+                                            </div>
+                                            <div class="mb-4">
+                                                <label for="Cred_Materia"
+                                                    class="block text-lg font-medium text-gray-700 text-left">Créditos
+                                                    de la
+                                                    Materia</label>
+                                                <input type="number" id="Cred_Materia" name="Cred_Materia"
+                                                    class="mt-1 p-2 border border-gray-300 rounded-md w-full"
+                                                    placeholder="Ingrese los créditos de la materia" required>
+                                            </div>
+                                            <div class="mb-4">
+                                                <label for="Requisitos_Previos"
+                                                    class="block text-lg font-medium text-gray-700 text-left">Requisitos
+                                                    Previos</label>
+                                                <input type="text" id="Requisitos_Previos" name="Requisitos_Previos"
+                                                    class="mt-1 p-2 border border-gray-300 rounded-md w-full"
+                                                    placeholder="Ingrese los requisitos previos si los hay">
+                                            </div>
+                                            <div class="mb-4">
+                                                <label for="Uni_Grupos_Cve_grupo"
+                                                    class="block text-lg font-medium text-gray-700 text-left">Clave del
+                                                    Grupo</label>
+                                                <input type="text" id="Uni_Grupos_Cve_grupo" name="Uni_Grupos_Cve_grupo"
+                                                    class="mt-1 p-2 border border-gray-300 rounded-md w-full"
+                                                    placeholder="Ingrese la clave del grupo" required>
+                                            </div>
 
-                                        <div class="flex justify-end pt-4">
-                                            <button type="submit"
-                                                class="bg-blue-500 text-white px-4 py-2 rounded-md mr-2 focus:outline-none focus:shadow-outline">
-                                                Agregar
-                                            </button>
-                                            <button type="button"
-                                                class="bg-gray-300 text-gray-700 px-4 py-2 rounded-md focus:outline-none focus:shadow-outline"
-                                                onclick="closeModal()">
-                                                Cancelar
-                                            </button>
-                                        </div>
-                                    </form>
+                                            <div class="flex justify-end pt-4">
+                                                <button type="submit"
+                                                    class="bg-blue-500 text-white px-4 py-2 rounded-md mr-2 focus:outline-none focus:shadow-outline">
+                                                    Agregar
+                                                </button>
+                                                <button type="button"
+                                                    class="bg-gray-300 text-gray-700 px-4 py-2 rounded-md focus:outline-none focus:shadow-outline"
+                                                    onclick="closeModal()">
+                                                    Cancelar
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
 
-=======
-                        <a id="agregarProductoBtn" href="#"
-                            class="border-2 border-blue-600 rounded-lg px-3 py-2 text-blue-400 cursor-pointer hover:bg-blue-600 hover:text-blue-200">
-                            Agregar Producto
-                        </a>
->>>>>>> f60ec0141f20470212ab99305fc839a58ac6ceba
+                            =======
+                            <a id="agregarProductoBtn" href="#"
+                                class="border-2 border-blue-600 rounded-lg px-3 py-2 text-blue-400 cursor-pointer hover:bg-blue-600 hover:text-blue-200">
+                                Agregar Producto
+                            </a>
+                            >>>>>>> f60ec0141f20470212ab99305fc839a58ac6ceba
                     </div>
                 </div>
                 <div
@@ -361,57 +361,14 @@
 
                                 <td
                                     class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-500 text-sm leading-5">
-                                    <input type="hidden" name="id" value="1">
-                                    <a href="#"
-                                        class="px-4 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">Editar</a>
-                                    <button onclick="openDeleteModal()"
-                                        class="px-4 py-2 border-red-500 border text-red-500 rounded transition duration-300 hover:bg-red-700 hover:text-white focus:outline-none">Eliminar</button>
-
-                                    <!-- Modal de Confirmación de Eliminación -->
-                                    <div id="deleteModal" class="fixed inset-0 z-10 hidden overflow-y-auto">
-                                        <div
-                                            class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-                                            <div class="fixed inset-0 transition-opacity" aria-hidden="true">
-                                                <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
-                                            </div>
-
-                                            <!-- Este elemento es para centrar el contenido del modal verticalmente. -->
-                                            <span class="hidden sm:inline-block sm:align-middle sm:h-screen"
-                                                aria-hidden="true">&#8203;</span>
-
-                                            <div
-                                                class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
-                                                <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-                                                    <div class="sm:flex sm:items-start">
-                                                        <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
-                                                            <h3 class="text-2xl leading-6 font-medium text-gray-900"
-                                                                id="modal-headline">
-                                                                Confirmación de Eliminación
-                                                            </h3>
-                                                            <div class="mt-2">
-                                                                <p class="text-lg text-gray-500">
-                                                                    ¿Estás seguro de que deseas eliminar este elemento?
-                                                                    Esta acción es irreversible.
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-                                                    <button type="button"
-                                                        class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm"
-                                                        onclick="closeDeleteModal()">
-                                                        Aceptar
-                                                    </button>
-                                                    <button type="button"
-                                                        class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
-                                                        onclick="closeDeleteModal()">
-                                                        Cancelar
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <form action="#" method="POST">
+                                        @csrf
+                                        <input type="hidden" name="id" value="1">
+                                        <a href="#"
+                                            class="px-4 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">Editar</a>
+                                        <button type="submit"
+                                            class="px-4 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">Eliminar</button>
+                                    </form>
                                 </td>
                             </tr>
                             {% endfor %}
@@ -426,166 +383,166 @@
 
     </div>
 
-<<<<<<< HEAD
-    <script>
+    <<<<<<< HEAD <script>
         // Función para abrir el modal
         function openModal() {
-            document.getElementById('agregarProductoModal').classList.remove('hidden');
-            document.getElementById('agregarProductoModal').classList.add('flex');
+        document.getElementById('agregarProductoModal').classList.remove('hidden');
+        document.getElementById('agregarProductoModal').classList.add('flex');
         }
 
         // Función para cerrar el modal
         function closeModal() {
-            document.getElementById('agregarProductoModal').classList.remove('flex');
-            document.getElementById('agregarProductoModal').classList.add('hidden');
+        document.getElementById('agregarProductoModal').classList.remove('flex');
+        document.getElementById('agregarProductoModal').classList.add('hidden');
         }
 
         function openDeleteModal() {
-            document.getElementById('deleteModal').style.display = 'block';
+        document.getElementById('deleteModal').style.display = 'block';
         }
 
         function closeDeleteModal() {
-            document.getElementById('deleteModal').style.display = 'none';
+        document.getElementById('deleteModal').style.display = 'none';
         }
-    </script>
+        </script>
 
 
-=======
+        =======
 
 
-    <div class="main-modal fixed w-full h-100 inset-0 z-50 overflow-hidden flex justify-center items-center animated fadeIn faster"
-        style="background: rgba(0,0,0,.7);">
-        <div
-            class="border border-teal-500 modal-container bg-white w-11/12 md:max-w-3xl mx-auto rounded shadow-lg z-50 overflow-y-auto">
-            <div class="modal-content py-4 text-left px-6">
+        <div class="main-modal fixed w-full h-100 inset-0 z-50 overflow-hidden flex justify-center items-center animated fadeIn faster"
+            style="background: rgba(0,0,0,.7);">
+            <div
+                class="border border-teal-500 modal-container bg-white w-11/12 md:max-w-3xl mx-auto rounded shadow-lg z-50 overflow-y-auto">
+                <div class="modal-content py-4 text-left px-6">
 
-                <div class="flex justify-between items-center pb-3">
-                    <p class="text-2xl font-bold">Agregar Alumno</p>
-                    <div class="modal-close cursor-pointer z-50">
-                        <svg class="fill-current text-black" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                            viewBox="0 0 18 18">
-                            <path
-                                d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z">
-                            </path>
-                        </svg>
+                    <div class="flex justify-between items-center pb-3">
+                        <p class="text-2xl font-bold">Agregar Alumno</p>
+                        <div class="modal-close cursor-pointer z-50">
+                            <svg class="fill-current text-black" xmlns="http://www.w3.org/2000/svg" width="18"
+                                height="18" viewBox="0 0 18 18">
+                                <path
+                                    d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z">
+                                </path>
+                            </svg>
+                        </div>
                     </div>
-                </div>
 
-                <form action="#" method="POST" enctype="multipart/form-data">
-                    <div class="my-5">
-                        <div class="max-w-md mx-auto">
-                            <div class="divide-y divide-gray-200">
-                                <div class="text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
+                    <form action="#" method="POST" enctype="multipart/form-data">
+                        <div class="my-5">
+                            <div class="max-w-md mx-auto">
+                                <div class="divide-y divide-gray-200">
+                                    <div class="text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
 
-                                    <input type="hidden" id="id" name="id">
+                                        <input type="hidden" id="id" name="id">
 
-                                    <div class="flex flex-col">
-                                        <label class="leading-loose">Nombre</label>
-                                        <input type="text" name="name" placeholder="Nombre Apellido"
-                                            class="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600">
-                                    </div>
-
-                                    <div class="flex flex-col">
-                                        <label class="leading-loose">Correo</label>
-                                        <input type="text" name="email"
-                                            class="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600"
-                                            placeholder="example@gmail">
-                                    </div>
-
-                                    <div class="flex items-center space-x-4">
                                         <div class="flex flex-col">
-                                            <label class="leading-loose">Fecha de nacimiento</label>
-                                            <div class="relative focus-within:text-gray-600 text-gray-400">
-                                                <input type="text" name="birthdate"
-                                                    class="pr-4 pl-10 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600"
-                                                    placeholder="1999-02-23" pattern="\d{4}-\d{2}-\d{2}">
-                                                <div class="absolute left-3 top-2">
-                                                    <svg class="w-6 h-6" fill="none" stroke="currentColor"
-                                                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                                            stroke-width="2"
-                                                            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
-                                                        </path>
-                                                    </svg>
+                                            <label class="leading-loose">Nombre</label>
+                                            <input type="text" name="name" placeholder="Nombre Apellido"
+                                                class="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600">
+                                        </div>
+
+                                        <div class="flex flex-col">
+                                            <label class="leading-loose">Correo</label>
+                                            <input type="text" name="email"
+                                                class="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600"
+                                                placeholder="example@gmail">
+                                        </div>
+
+                                        <div class="flex items-center space-x-4">
+                                            <div class="flex flex-col">
+                                                <label class="leading-loose">Fecha de nacimiento</label>
+                                                <div class="relative focus-within:text-gray-600 text-gray-400">
+                                                    <input type="text" name="birthdate"
+                                                        class="pr-4 pl-10 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600"
+                                                        placeholder="1999-02-23" pattern="\d{4}-\d{2}-\d{2}">
+                                                    <div class="absolute left-3 top-2">
+                                                        <svg class="w-6 h-6" fill="none" stroke="currentColor"
+                                                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="2"
+                                                                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
+                                                            </path>
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="flex flex-col">
+                                                <label class="leading-loose">Activo</label>
+                                                <div class="relative focus-within:text-gray-600 text-gray-400">
+                                                    <label
+                                                        class="ml-4 relative inline-flex cursor-pointer items-center">
+
+                                                        <input type="hidden" id="asset" value="1" name="asset">
+                                                        <input class="hidden" type="checkbox" id="toggle_1" value="1">
+                                                        <label
+                                                            class="flex items-center w-10 border border-black h-6 p-1 rounded-full cursor-pointer justify-end bg-black"
+                                                            for="toggle_1">
+                                                            <span class="w-4 h-4 rounded-full bg-white"></span>
+                                                        </label>
+                                                    </label>
                                                 </div>
                                             </div>
                                         </div>
 
-                                        <div class="flex flex-col">
-                                            <label class="leading-loose">Activo</label>
-                                            <div class="relative focus-within:text-gray-600 text-gray-400">
-                                                <label class="ml-4 relative inline-flex cursor-pointer items-center">
-
-                                                    <input type="hidden" id="asset" value="1" name="asset">
-                                                    <input class="hidden" type="checkbox" id="toggle_1" value="1">
-                                                    <label
-                                                        class="flex items-center w-10 border border-black h-6 p-1 rounded-full cursor-pointer justify-end bg-black"
-                                                        for="toggle_1">
-                                                        <span class="w-4 h-4 rounded-full bg-white"></span>
-                                                    </label>
-                                                </label>
-                                            </div>
-                                        </div>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="flex justify-end pt-2">
-                        <button type="button"
-                            class="focus:outline-none modal-close px-4 bg-gray-400 p-3 rounded-lg text-black hover:bg-gray-300">Cancel</button>
-                        <button type="submit"
-                            class="focus:outline-none px-4 bg-teal-500 p-3 ml-3 rounded-lg text-white hover:bg-teal-400">Crear</button>
-                    </div>
-                </form>
+                        <div class="flex justify-end pt-2">
+                            <button type="button"
+                                class="focus:outline-none modal-close px-4 bg-gray-400 p-3 rounded-lg text-black hover:bg-gray-300">Cancel</button>
+                            <button type="submit"
+                                class="focus:outline-none px-4 bg-teal-500 p-3 ml-3 rounded-lg text-white hover:bg-teal-400">Crear</button>
+                        </div>
+                    </form>
 
+                </div>
             </div>
         </div>
-    </div>
 
->>>>>>> f60ec0141f20470212ab99305fc839a58ac6ceba
-    {#- {% include 'web/pages/alerts.html' %} #}
+        >>>>>>> f60ec0141f20470212ab99305fc839a58ac6ceba
+        {#- {% include 'web/pages/alerts.html' %} #}
 
-    <script>
-        var agregarProductoBtn = document.getElementById("agregarProductoBtn");
+        <script>
+            var agregarProductoBtn = document.getElementById("agregarProductoBtn");
 
-        agregarProductoBtn.addEventListener("click", function (event) {
-            event.preventDefault();
-            openModal();
-        });
+            agregarProductoBtn.addEventListener("click", function (event) {
+                event.preventDefault();
+                openModal();
+            });
 
-        const modal = document.querySelector('.main-modal');
-        const closeButton = document.querySelectorAll('.modal-close');
+            const modal = document.querySelector('.main-modal');
+            const closeButton = document.querySelectorAll('.modal-close');
 
-        const modalClose = () => {
-            modal.classList.remove('fadeIn');
-            modal.classList.add('fadeOut');
-            setTimeout(() => {
-                modal.style.display = 'none';
-            }, 500);
-        }
-
-        const openModal = () => {
-            modal.classList.remove('fadeOut');
-            modal.classList.add('fadeIn');
-            modal.style.display = 'flex';
-        }
-
-        for (let i = 0; i < closeButton.length; i++) {
-
-            const elements = closeButton[i];
-
-            elements.onclick = (e) => modalClose();
-
-            modal.style.display = 'none';
-
-            window.onclick = function (event) {
-                if (event.target == modal) modalClose();
+            const modalClose = () => {
+                modal.classList.remove('fadeIn');
+                modal.classList.add('fadeOut');
+                setTimeout(() => {
+                    modal.style.display = 'none';
+                }, 500);
             }
-        }       
-    </script>
+
+            const openModal = () => {
+                modal.classList.remove('fadeOut');
+                modal.classList.add('fadeIn');
+                modal.style.display = 'flex';
+            }
+
+            for (let i = 0; i < closeButton.length; i++) {
+
+                const elements = closeButton[i];
+
+                elements.onclick = (e) => modalClose();
+
+                modal.style.display = 'none';
+
+                window.onclick = function (event) {
+                    if (event.target == modal) modalClose();
+                }
+            }
+        </script>
 
 
 </body>
