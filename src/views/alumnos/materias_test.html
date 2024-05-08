@@ -31,22 +31,22 @@
             animation-name: fadeOut;
         }
 
-        <blade keyframes|%20fadeIn%20%7B%0D>from {
-            opacity: 0;
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
 
-        to {
-            opacity: 1;
-        }
-        }
-
-        <blade keyframes|%20fadeOut%20%7B%0D>from {
-            opacity: 1;
-        }
-
-        to {
-            opacity: 0;
-        }
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
         }
     </style>
 </head>
@@ -301,13 +301,10 @@
                                 </div>
                             </div>
 
-
-                            =======
                             <a id="agregarProductoBtn" href="#"
                                 class="border-2 border-blue-600 rounded-lg px-3 py-2 text-blue-400 cursor-pointer hover:bg-blue-600 hover:text-blue-200">
                                 Agregar Producto
                             </a>
-                            >>>>>>> f60ec0141f20470212ab99305fc839a58ac6ceba
                     </div>
                 </div>
                 <div
@@ -383,7 +380,7 @@
 
     </div>
 
-    <<<<<<< HEAD <script>
+    <script>
         // Función para abrir el modal
         function openModal() {
         document.getElementById('agregarProductoModal').classList.remove('hidden');
@@ -404,10 +401,6 @@
         document.getElementById('deleteModal').style.display = 'none';
         }
         </script>
-
-
-        =======
-
 
         <div class="main-modal fixed w-full h-100 inset-0 z-50 overflow-hidden flex justify-center items-center animated fadeIn faster"
             style="background: rgba(0,0,0,.7);">
@@ -502,7 +495,6 @@
             </div>
         </div>
 
-        >>>>>>> f60ec0141f20470212ab99305fc839a58ac6ceba
         {#- {% include 'web/pages/alerts.html' %} #}
 
         <script>
