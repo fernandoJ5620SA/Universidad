@@ -3,6 +3,8 @@ from flask import Flask
 
 from src.routes.main import main_bp
 from src.routes.admin import admin_bp
+from src.routes.alumnos import alumnos_bp
+
 
 from src.routes.auth import auth_bp
 
@@ -12,6 +14,7 @@ app = Flask(__name__, static_folder="src/static")
 # Registrar el blueprint en la aplicación
 app.register_blueprint(main_bp)
 app.register_blueprint(admin_bp)
+app.register_blueprint(alumnos_bp)
 app.register_blueprint(auth_bp)
 
 if __name__ == "__main__":

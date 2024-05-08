@@ -41,7 +41,7 @@ def login():
         return render_template('layouts/dashboard_alumnos.html', msg = msg)
     # src.controllers.AuthController.auth_user()
     # return render_template("login.html")
-
+    # return render_template('login.html')
 
 @auth_bp.route("/register", methods = ['GET', 'POST'])
 def register():
