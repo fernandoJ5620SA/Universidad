@@ -6,7 +6,7 @@ import mysql.connector
 
 def connectionBD():
     mydb = mysql.connector.connect(
-        host="localhost", port=3306, user="root", passwd="1423#Ghz1233", database="universidad"
+        host="localhost", port=3306, user="root", passwd="zxcvbnm,", database="universidad"
     )
 
     return mydb
