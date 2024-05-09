@@ -27,29 +27,29 @@ def require_profesor(f):
 
 @profesor_bp.route("/profesores")
 @require_profesor
-def index():
-    return render_template("Profesor/profesor.html")
-
-
 def Inicio():
     return render_template("Profesor/profesor.html")
 
 
 @profesor_bp.route("/2")
+@require_profesor
 def V2():
     return render_template("Profesor/Vista2.html")
 
 
 @profesor_bp.route("/3")
+@require_profesor
 def V3():
     return render_template("Profesor/Vista3.html")
 
 
 @profesor_bp.route("/4")
+@require_profesor
 def V4():
     return render_template("Profesor/Vista4.html")
 
 
 @profesor_bp.route("/5")
+@require_profesor
 def V5():
     return render_template("Profesor/Vista5.html")

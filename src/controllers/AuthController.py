@@ -20,11 +20,11 @@ def auth_user():
             account = cursor.fetchone()
             print(account)
 
-            #   session["User_id"] = True
-            #   print(session["User_id"])
+            # session["User_id"] = True
+            # print(session["User_id"])
 
-            #   session["role"] = account["fk_User_Role"]
-            #   print(session["role"])
+            # session["role"] = account["fk_User_Role"]
+            # print(session["role"])
 
             if account and check_password_hash(account["password"], password):
                 session["loggedin"] = True
