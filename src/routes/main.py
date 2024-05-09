@@ -11,7 +11,7 @@ main_bp = Blueprint("main", __name__, template_folder="../views")
 
 @main_bp.route("/")
 def index():
-    return render_template("login.html")
+    return render_template("Login/Login.html")
 #layouts/dashboard_alumnos.html
     
 @main_bp.route("/alumnos")

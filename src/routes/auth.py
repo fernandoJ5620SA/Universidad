@@ -11,7 +11,7 @@ auth_bp = Blueprint("auth", __name__, template_folder="../views")
 def login():
     if request.method == 'POST':
          return auth_user()
-    return render_template("login.html")
+    return render_template("Login/Login.html")
 
 @auth_bp.route("/logout")
 def logout():
