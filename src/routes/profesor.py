@@ -12,7 +12,7 @@ profesor_bp = Blueprint("profesor", __name__, template_folder="../views")
 
 @profesor_bp.route("/profesores")
 def index():
-    return render_template("layouts/dashboard_profesor.html")
+    return render_template("Profesor/profesor.html")
     
 
 
