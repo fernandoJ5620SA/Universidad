@@ -19,9 +19,9 @@ def auth_user():
                     session['User_id'] = True
                     session['email'] = account['email']
                     msg = 'Logged in successfully !'
-                    return redirect(url_for('admin.index'))
+                    return redirect(url_for('login'))
                 else:
-                    return render_template('login.html', msg= 'Correo y contraseña incorrectos')
+                    return render_template('Auth/login.html', msg= 'Correo y contraseña incorrectos')
             except Exception as e:
                 #  print("A ocurrido el error desdepues antes de ingresar", e)
                  msg = "A ocurrido un error: {}".format(e)
