@@ -1,11 +1,11 @@
 from flask import Blueprint, redirect, render_template, session, flash, url_for
+from functools import wraps
 
 import src.controllers.alumnos.MateriasController
 
 
 # Crear un blueprint
 admin_bp = Blueprint("admin", __name__, template_folder="../views/admin")
-from functools import wraps
 
 
 def require_admin(f):
