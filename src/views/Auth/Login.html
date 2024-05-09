@@ -1,10 +1,11 @@
-{% extends "base.html" %}
+{% extends "layouts/login.html" %}
 
 {% block content %}
 <div class="absolute top-0 -z-10 h-screen w-screen grid place-content-center">
     <div class="flex bg-gray-100/75 rounded-md min-h-full flex-col justify-center px-6 py-12 lg:px-8">
         <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-            <img class="mx-auto h-20 w-auto" src="{{ url_for('static', filename='image/Logo.png') }}" alt="Your Company">
+            <img class="mx-auto h-20 w-auto" src="{{ url_for('static', filename='image/Logo.png') }}"
+                alt="Your Company">
             <h2 class="mt-5 px-20 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Ingresa</h2>
         </div>
 
@@ -21,9 +22,11 @@
 
                 <div>
                     <div class="flex items-center justify-between">
-                        <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Contraseña</label>
+                        <label for="password"
+                            class="block text-sm font-medium leading-6 text-gray-900">Contraseña</label>
                         <div class="text-sm">
-                            <a href="#" class="font-semibold text-[#074173] hover:text-[#1679AB]">Olvidaste tu contraseña?</a>
+                            <a href="#" class="font-semibold text-[#074173] hover:text-[#1679AB]">Olvidaste tu
+                                contraseña?</a>
                         </div>
                     </div>
                     <div class="mt-2">
@@ -39,7 +42,7 @@
                 </div>
             </form>
             {% if msg %}
-                <p>{{ msg }}</p>
+            <p>{{ msg }}</p>
             {% endif %}
 
             <p class="mt-10 text-center text-sm text-gray-500">
@@ -55,7 +58,7 @@
     style="background-image: url( {{ url_for('static', filename='image/Login.jpg') }} )">
 </div>
 <script>
-    document.getElementById('email').addEventListener('input', function() {
+    document.getElementById('email').addEventListener('input', function () {
         var correo = document.getElementById('email');
         var MenCorreo = document.getElementById('MenCorreo');
         var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -73,7 +76,7 @@
         }
     });
 
-    document.getElementById('password').addEventListener('input', function() {
+    document.getElementById('password').addEventListener('input', function () {
         var contraseña = document.getElementById('password');
         var MenContra = document.getElementById('MenContra');
         var contraRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%?&])[A-Za-z\d@$!%?&]{8,10}$/;
