@@ -7,11 +7,11 @@ from src.controllers.AuthController import auth_user, salir , register_user
 auth_bp = Blueprint("auth", __name__, template_folder="../views")
 
 # Definir rutas dentro del blueprint
-@auth_bp.route("/login", methods=['GET',"POST"])
+@auth_bp.route("/", methods=['GET',"POST"])
 def login():
     if request.method == 'POST':
          return auth_user()
-    return render_template("Login/Login.html")
+    return render_template("Auth/Login.html")
 
 @auth_bp.route("/logout")
 def logout():
