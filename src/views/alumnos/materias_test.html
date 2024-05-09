@@ -35,10 +35,6 @@
             from {
                 opacity: 0;
             }
-<<<<<<< HEAD
-
-=======
->>>>>>> 1c9a9f9c908200c88e2e1d2e07910584832be4ac
             to {
                 opacity: 1;
             }
@@ -48,10 +44,6 @@
             from {
                 opacity: 1;
             }
-<<<<<<< HEAD
-
-=======
->>>>>>> 1c9a9f9c908200c88e2e1d2e07910584832be4ac
             to {
                 opacity: 0;
             }
@@ -235,10 +227,6 @@
                             </div>
 
                         </div>
-                        <a id="agregarProductoBtn" href="#"
-                            class="border-2 border-blue-600 rounded-lg px-3 py-2 text-blue-400 cursor-pointer hover:bg-blue-600 hover:text-blue-200">
-                            Agregar Producto
-                        </a>
                         <<<<<<< HEAD <a href="#"
                             class="border-2 border-blue-600 rounded-lg px-3 py-2 text-blue-400 cursor-pointer hover:bg-blue-600 hover:text-blue-200"
                             onclick="openModal()">Agregar Materia</a>
@@ -414,7 +402,7 @@
         }
         </script>
 
-        <div class="hidden main-modal fixed w-full h-100 inset-0 z-50 overflow-hidden flex justify-center items-center animated fadeIn faster"
+        <div class="main-modal fixed w-full h-100 inset-0 z-50 overflow-hidden flex justify-center items-center animated fadeIn faster"
             style="background: rgba(0,0,0,.7);">
             <div
                 class="border border-teal-500 modal-container bg-white w-11/12 md:max-w-3xl mx-auto rounded shadow-lg z-50 overflow-y-auto">
@@ -490,43 +478,6 @@
                                             </div>
                                         </div>
 
-<<<<<<< HEAD
-                                        <div class="flex flex-col">
-                                            <label class="leading-loose">Activo</label>
-                                            <div class="relative focus-within:text-gray-600 text-gray-400">
-                                                <label class="ml-4 relative inline-flex cursor-pointer items-center">
-
-                                                    <input type="hidden" id="asset" value="1" name="asset">
-                                                    <input class="hidden" type="checkbox" id="toggle_1" value="1">
-                                                    <label
-                                                        class="flex items-center w-10 border border-black h-6 p-1 rounded-full cursor-pointer justify-end bg-black"
-                                                        for="toggle_1">
-                                                        <span class="w-4 h-4 rounded-full bg-white"></span>
-                                                    </label>
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="flex justify-end pt-2">
-                        <button type="button"
-                            class="focus:outline-none modal-close px-4 bg-gray-400 p-3 rounded-lg text-black hover:bg-gray-300">Cancel</button>
-                        <button type="submit"
-                            class="focus:outline-none px-4 bg-teal-500 p-3 ml-3 rounded-lg text-white hover:bg-teal-400">Crear</button>
-                    </div>
-                </form>
-
-            </div>
-        </div>
-    </div>
-
-    {#- {% include 'web/pages/alerts.html' %} #}
-=======
                                     </div>
                                 </div>
                             </div>
@@ -584,46 +535,6 @@
                 }
             }
         </script>
->>>>>>> 1c9a9f9c908200c88e2e1d2e07910584832be4ac
-
-    <script>
-        var agregarProductoBtn = document.getElementById("agregarProductoBtn");
-
-        agregarProductoBtn.addEventListener("click", function (event) {
-            event.preventDefault();
-            openModal();
-        });
-
-        const modal = document.querySelector('.main-modal');
-        const closeButton = document.querySelectorAll('.modal-close');
-
-        const modalClose = () => {
-            modal.classList.remove('fadeIn');
-            modal.classList.add('fadeOut');
-            setTimeout(() => {
-                modal.style.display = 'none';
-            }, 500);
-        }
-
-        const openModal = () => {
-            modal.classList.remove('fadeOut');
-            modal.classList.add('fadeIn');
-            modal.style.display = 'flex';
-        }
-
-        for (let i = 0; i < closeButton.length; i++) {
-
-            const elements = closeButton[i];
-
-            elements.onclick = (e) => modalClose();
-
-            modal.style.display = 'none';
-
-            window.onclick = function (event) {
-                if (event.target == modal) modalClose();
-            }
-        }       
-    </script>
 
 
 </body>
