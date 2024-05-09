@@ -13,9 +13,6 @@ def index():
     return render_template("Login/Login.html")
 #layouts/dashboard_alumnos.html
 
-@main_bp.route('/home', methods=['POST'])
-def header():
-    return render_template('header.html')
 
 
 

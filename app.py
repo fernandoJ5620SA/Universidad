@@ -1,10 +1,10 @@
 # Este archivo será el punto de entrada de nuestra aplicación. Contendrá el código para ejecutar la aplicación Flask.
 from flask import Flask
 
+from src.routes.auth import auth_bp
 from src.routes.main import main_bp
 from src.routes.admin import admin_bp
 from src.routes.profesor import profesor_bp
-from src.routes.auth import auth_bp
 
 # Crear una instancia de la aplicación Flask
 app = Flask(__name__, static_folder="src/static")
