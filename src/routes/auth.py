@@ -21,4 +21,4 @@ def logout():
 def register():
     if request.method == 'POST':
             return register_user()
-    return render_template("register.html")
+    return render_template("Auth/register.html")
