@@ -11,6 +11,9 @@ profesor_bp = Blueprint("profesor", __name__, template_folder="../views")
 # Definir rutas dentro del blueprint
 
 @profesor_bp.route("/profesores")
-def Datos_Profesor():
-    return render_template("Profesor/profesor.html")
+def index():
+    return render_template("layouts/dashboard_profesor.html")
+    
+
+
 
