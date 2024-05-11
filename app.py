@@ -14,7 +14,7 @@ app.secret_key = 'gil_se_la_come'
 app.register_blueprint(admin_bp)
 app.register_blueprint(auth_bp)
 app.register_blueprint(profesor_bp)
-app.register_blueprint(alumnos_bp)app.register_blueprint(alumnos_bp)
+app.register_blueprint(alumnos_bp)
 
 
 
