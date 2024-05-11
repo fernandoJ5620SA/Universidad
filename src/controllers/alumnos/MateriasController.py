@@ -8,9 +8,9 @@ def obtener_materias():
         "select * from uni_materias;")
 
     mycursor.execute(querySQL)
-    pacientes = mycursor.fetchall()  # fetchall () Obtener todos los registros
+    materias = mycursor.fetchall()  # fetchall () Obtener todos los registros
 
     mycursor.close()  # cerrrando conexion SQL
     conexion_MySQLdb.close()  # cerrando conexion de la BD
 
-    return pacientes
+    return materias

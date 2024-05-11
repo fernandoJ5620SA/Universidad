@@ -1,6 +1,4 @@
 from flask import Blueprint, render_template
-
-import src.controllers.Profesor
 import src.controllers.Profesor.DatosProfesorController
 
 
@@ -12,7 +10,8 @@ profesor_bp = Blueprint("profesor", __name__, template_folder="../views")
 
 @profesor_bp.route("/profesores")
 def index():
-    return render_template("Profesor/profesor.html")
+    profesores = src.controllers.Profesor.DatosProfesorController.obtener_profesor()
+    return render_template("Profesor/profesor.html", profesor = profesores)
     
 
 

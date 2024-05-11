@@ -19,49 +19,61 @@
                                             <th
                                                 class="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
                                                 <div class="flex cursor-pointer">
-                                                    <span class="mr-2">PRODUCT NAME</span>
+                                                    <span class="mr-2">IDENTIFICADOR DE CARRERA</span>
                                                 </div>
                                             </th>
                                             <th
                                                 class="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
                                                 <div class="flex cursor-pointer">
-                                                    <span class="mr-2">Stock</span>
+                                                    <span class="mr-2">CLAVE DE CARRERA</span>
                                                 </div>
                                             </th>
                                             <th
                                                 class="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
                                                 <div class="flex cursor-pointer">
-                                                    <span class="mr-2">STATUS</span>
+                                                    <span class="mr-2">NOMBRE</span>
                                                 </div>
                                             </th>
                                             <th
                                                 class="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
                                                 <div class="flex cursor-pointer">
-                                                    <span class="mr-2">ACTION</span>
+                                                    <span class="mr-2">DURACIÓN</span>
+                                                </div>
+                                            </th>
+                                            <th
+                                                class="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                                                <div class="flex cursor-pointer">
+                                                    <span class="mr-2">REQUISITO DE ADMINISIÓN</span>
+                                                </div>
+                                            </th>
+                                            <th
+                                                class="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                                                <div class="flex cursor-pointer">
+                                                    <span class="mr-2">CREDITOS TOTALES</span>
                                                 </div>
                                             </th>
                                         </tr>
                                     </thead>
                                     <tbody class="bg-white divide-y divide-gray-200">
+                                        {% for carreras in carrera %}
                                         <tr>
                                             <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
-                                                <p>Apple MacBook Pro 13</p>
-                                                <p class="text-xs text-gray-400">PC & Laptop
-                                                </p>
+                                                <p>{{ carreras.id_carrrera}}</p>
                                             </td>
                                             <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
-                                                <p>77</p>
+                                                <p>{{carreras.Cve_Carrera}}</p>
                                             </td>
                                             <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
-                                                <div class="flex text-green-500">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-1"
-                                                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                                            stroke-width="2"
-                                                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                                    </svg>
-                                                    <p>Active</p>
-                                                </div>
+                                                <p>{{carreras.Nombre_Carrera}}</p>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
+                                                <p>{{carreras.Duracion}}</p>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
+                                                <p>{{carreras.Rquisitos_ad}}</p>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
+                                                <p>{{carreras.Creditos_gradu}}</p>
                                             </td>
                                             <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
                                                 <div class="flex space-x-4">
@@ -87,6 +99,7 @@
                                                 </div>
                                             </td>
                                         </tr>
+                                        {% endfor %}
                                     </tbody>
                                 </table>
                             </div>

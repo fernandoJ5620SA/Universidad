@@ -6,7 +6,7 @@
     <div class="grid gap-2 grid-cols-1 lg:grid-cols-1">
         <div class="bg-white p-4 shadow-lg rounded-lg">
 
-            <h1 class="font-bold text-base">Profesor</h1>
+            <h1 class="font-bold text-base">ALUMNOS</h1>
 
             <div class="mt-4">
                 <div class="flex flex-col">
@@ -19,31 +19,82 @@
                                             <th
                                                 class="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
                                                 <div class="flex cursor-pointer">
-                                                    <span class="mr-2">PRODUCT NAME</span>
+                                                    <span class="mr-2">IDENTIFICADOR</span>
                                                 </div>
                                             </th>
                                             <th
                                                 class="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
                                                 <div class="flex cursor-pointer">
-                                                    <span class="mr-2">Stock</span>
+                                                    <span class="mr-2">DESCRIPCION</span>
                                                 </div>
                                             </th>
                                             <th
                                                 class="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
                                                 <div class="flex cursor-pointer">
-                                                    <span class="mr-2">STATUS</span>
+                                                    <span class="mr-2">CREDITOS</span>
                                                 </div>
                                             </th>
                                             <th
                                                 class="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
                                                 <div class="flex cursor-pointer">
-                                                    <span class="mr-2">ACTION</span>
+                                                    <span class="mr-2">REQUISITOS PREVIOS</span>
+                                                </div>
+                                            </th>
+                                            <th
+                                                class="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                                                <div class="flex cursor-pointer">
+                                                    <span class="mr-2">GRUPO</span>
                                                 </div>
                                             </th>
                                         </tr>
                                     </thead>
                                     <tbody class="bg-white divide-y divide-gray-200">
+                                        {% for materias in materia %}
                                         <tr>
+                                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                                                <div class="flex items-center">
+                                                    <div>
+                                                        <div class="text-sm leading-5 text-gray-800">{{ materias.id_materia }}</div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                                                <div class="text-sm leading-5 text-blue-900">{{ materias.nombre_Materia }}</div>
+                                            </td>
+                                            <td
+                                                class="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">
+                                                {{ materias.Cred_Materia }}
+                                            </td>
+                                            <td
+                                                class="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">
+                                                {{ materias.Requisitos_Previos }}
+                                            </td>
+                                            <td
+                                            class="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">
+                                                {{ materias.Uni_Grupos_Cve_grupo }}
+                                            </td>
+                                            <!-- Agregar el resto de las columnas según la estructura de datos del profesor -->
+                                            
+                                        
+                                        
+
+                                            <td
+                                                class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-500 text-sm leading-5">
+                                                <div class="flex space-x-4">
+                                                    <form action="#" method="POST">
+                                                        <input type="hidden" name="id" value="{{ materias.id_materia }}">
+                                                        <a href="#"
+                                                        class="px-4 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">Editar
+                                                        </a>
+                                                        <button type="submit"
+                                                            class="px-4 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">Eliminar</button>
+                                                    </form>
+
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                        <!-- <tr>
                                             <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
                                                 <p>Mauro Antonio Jimenez</p>
                                                 <p class="text-xs text-gray-400">Matematicas
@@ -86,7 +137,7 @@
                                                     </a>
                                                 </div>
                                             </td>
-                                        </tr>
+                                        </tr> -->
                                     </tbody>
                                 </table>
                             </div>

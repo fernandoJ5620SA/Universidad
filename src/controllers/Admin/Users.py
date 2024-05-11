@@ -8,9 +8,9 @@ def usuarios():
         "select * from UserUni;")
 
     mycursor.execute(querySQL)
-    pacientes = mycursor.fetchall()  # fetchall () Obtener todos los registros
+    usuarios = mycursor.fetchall()  # fetchall () Obtener todos los registros
 
     mycursor.close()  # cerrrando conexion SQL
     conexion_MySQLdb.close()  # cerrando conexion de la BD
 
-    return pacientes
+    return usuarios

@@ -20,40 +20,45 @@
                                             <th
                                                 class="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
                                                 <div class="flex cursor-pointer">
-                                                    <span class="mr-2">PRODUCT NAME</span>
+                                                    <span class="mr-2">MATRICULA</span>
                                                 </div>
                                             </th>
                                             <th
                                                 class="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
                                                 <div class="flex cursor-pointer">
-                                                    <span class="mr-2">Stock</span>
+                                                    <span class="mr-2">IDENTIFICADOR CARRERA</span>
                                                 </div>
                                             </th>
                                             <th
                                                 class="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
                                                 <div class="flex cursor-pointer">
-                                                    <span class="mr-2">STATUS</span>
+                                                    <span class="mr-2">AÑO GRADUADO</span>
                                                 </div>
                                             </th>
                                             <th
                                                 class="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
                                                 <div class="flex cursor-pointer">
-                                                    <span class="mr-2">ACTION</span>
+                                                    <span class="mr-2">CARRERA</span>
                                                 </div>
                                             </th>
                                         </tr>
                                     </thead>
                                     <tbody class="bg-white divide-y divide-gray-200">
+                                        {% for egresados in egresado %}
                                         <tr>
                                             <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
-                                                <p>Apple MacBook Pro 13</p>
-                                                <p class="text-xs text-gray-400">PC & Laptop
-                                                </p>
+                                                <p>{{egresados.Matricula}}</p>
                                             </td>
                                             <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
-                                                <p>77</p>
+                                                <p>{{egresados.id_carrera}}</p>
                                             </td>
                                             <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
+                                                <p>{{egresados.año_grad}}</p>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
+                                                <p>{{egresados.Uni_Carreras_id_carrrera}}</p>
+                                            </td>
+                                            <!-- <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
                                                 <div class="flex text-green-500">
                                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-1"
                                                         fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -63,7 +68,7 @@
                                                     </svg>
                                                     <p>Active</p>
                                                 </div>
-                                            </td>
+                                            </td> -->
                                             <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
                                                 <div class="flex space-x-4">
                                                     <a href="#" class="text-blue-500 hover:text-blue-600">
@@ -88,6 +93,7 @@
                                                 </div>
                                             </td>
                                         </tr>
+                                        {% endfor %}
                                     </tbody>
                                 </table>
                             </div>

@@ -1,5 +1,12 @@
 from flask import Blueprint, render_template
 
+import src.controllers.Admin
+import src.controllers.Admin.Carrera
+import src.controllers.Admin.Egresados
+import src.controllers.Admin.Users
+import src.controllers.Admin.kardex
+import src.controllers.Profesor
+import src.controllers.Profesor.DatosProfesorController
 import src.controllers.alumnos.MateriasController
 
 
@@ -15,21 +22,25 @@ def admin_inicio():
 
 @admin_bp.route("/admin/carreras")
 def carreras():
-    return render_template("admin/Carreras.html")
+    carreras = src.controllers.Admin.Carrera.usuarios()
+    return render_template("admin/Carreras.html", carrera = carreras)
     
 @admin_bp.route("/admin/carga-academica")
 def carga_academica():
-    return render_template("admin/CargasAcademicas.html")
+    kardex = src.controllers.Admin.kardex.kardex()
+    return render_template("admin/CargasAcademicas.html", kardex = kardex)
 
 @admin_bp.route("/admin/usuarios")
 def usuarios():
-    return render_template("admin/Usuarios.html")
+    usuarios = src.controllers.Admin.Users.usuarios()
+    return render_template("admin/Usuarios.html", usuario = usuarios)
     
 # //
 
 @admin_bp.route("/admin/profesores")
 def profesores():
-    return render_template("admin/Profesores.html")
+    profesores = src.controllers.Profesor.DatosProfesorController.obtener_profesor()
+    return render_template("admin/Profesores.html", profesor = profesores )
 
 @admin_bp.route("/admin/plazas")
 def plazas():
@@ -45,7 +56,8 @@ def alumnos_en_curso():
 
 @admin_bp.route("/admin/alumnos-agresados")
 def alumnos_egresados():
-    return render_template("admin/Egresados.html")
+    egresados = src.controllers.Admin.Egresados.egresados()
+    return render_template("admin/Egresados.html", egresado = egresados)
     
 # //
 

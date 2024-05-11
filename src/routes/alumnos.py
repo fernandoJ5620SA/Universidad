@@ -1,4 +1,5 @@
 from flask import Blueprint, render_template
+import src.controllers.alumnos.MateriasController
 
 # Crear un blueprint
 alumnos_bp = Blueprint("alumnos", __name__, template_folder="../views")
@@ -8,20 +9,21 @@ alumnos_bp = Blueprint("alumnos", __name__, template_folder="../views")
 
 @alumnos_bp.route("/alumnos")
 def index():
-    return render_template("alumnos/inicio.html")
+    materias = src.controllers.alumnos.MateriasController.obtener_materias()
+    return render_template("alumnos/inicio.html", materia = materias)
     
 @alumnos_bp.route("/alumnos/materias")
-def index():
+def materias():
     return render_template("alumnos/materias.html")
 
 @alumnos_bp.route("/alumnos/Kardex")
-def index():
+def kardex():
     return render_template("alumnos/Kardex.html")
 
 @alumnos_bp.route("/alumnos/Horarios")
-def index():
+def horarios():
     return render_template("alumnos/Horarios.html")
 
 @alumnos_bp.route("/alumnos/Historial")
-def index():
+def historial():
     return render_template("alumnos/Historial.html")    

@@ -86,41 +86,57 @@
                         <tbody class="bg-white">
 
                             <!-- Aquí iría un loop para mostrar la información de cada profesor -->
-                            <!-- Ejemplo:
-                            {% for profesor in profesores %}
+                            <!-- Ejemplo:-->
+                            {% for profesores in profesor %}
                             <tr>
                                 <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
                                     <div class="flex items-center">
                                         <div>
-                                            <div class="text-sm leading-5 text-gray-800">{{ profesor.Cve_Profesor }}</div>
+                                            <div class="text-sm leading-5 text-gray-800">{{ profesores.Cve_Profesor }}</div>
                                         </div>
                                     </div>
                                 </td>
                                 <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
-                                    <div class="text-sm leading-5 text-blue-900">{{ profesor.Especializacion }}</div>
+                                    <div class="text-sm leading-5 text-blue-900">{{ profesores.Especializacion }}</div>
                                 </td>
                                 <td
                                     class="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">
-                                    {{ profesor.materia_impar }}
+                                    {{ profesores.materia_impar }}
                                 </td>
-
+                                <td
+                                    class="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">
+                                    {{ profesores.nivel_acade }}
+                                </td>
+                                <td
+                                class="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">
+                                {{ profesores.titulo_acade }}
+                                </td>
+                                <td
+                                class="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">
+                                {{ profesores.fecha_ingreso }}
+                                </td>
+                                <td
+                                class="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">
+                                {{ profesores.User_User_id }}
+                                </td>
+                                <td
+                                class="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">
+                                {{ profesores.Contacto_id_Contacto }}
+                                </td>
                                 <!-- Agregar el resto de las columnas según la estructura de datos del profesor -->
-                                <!-- Ejemplo:
-                                <td
-                                    class="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">
-                                    {{ profesor.nivel_acade }}
-                                </td>
-                                -->
+                                
+                               
 
                                 <td
                                     class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-500 text-sm leading-5">
                                     <form action="#" method="POST">
-                                        @csrf
                                         <input type="hidden" name="id" value="{{ profesor.Cve_Profesor }}">
                                         <a href="#"
-                                            class="px-4 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">Editar</a>
+                                            class="px-4 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">Editar
+                                        </a>
                                         <button type="submit"
-                                            class="px-4 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">Eliminar</button>
+                                            class="px-4 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">Eliminar
+                                        </button>
                                     </form>
                                 </td>
                             </tr>

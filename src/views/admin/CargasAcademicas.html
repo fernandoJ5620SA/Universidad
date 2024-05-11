@@ -20,38 +20,79 @@
                                             <th
                                                 class="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
                                                 <div class="flex cursor-pointer">
-                                                    <span class="mr-2">PRODUCT NAME</span>
+                                                    <span class="mr-2">IDENTIFICADOR</span>
                                                 </div>
                                             </th>
                                             <th
                                                 class="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
                                                 <div class="flex cursor-pointer">
-                                                    <span class="mr-2">Stock</span>
+                                                    <span class="mr-2">MATRICULA</span>
                                                 </div>
                                             </th>
                                             <th
                                                 class="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
                                                 <div class="flex cursor-pointer">
-                                                    <span class="mr-2">STATUS</span>
+                                                    <span class="mr-2">HISTORICO</span>
                                                 </div>
                                             </th>
                                             <th
                                                 class="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
                                                 <div class="flex cursor-pointer">
-                                                    <span class="mr-2">ACTION</span>
+                                                    <span class="mr-2">ACREDITACIÓN</span>
+                                                </div>
+                                            </th>
+                                            <th
+                                                class="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                                                <div class="flex cursor-pointer">
+                                                    <span class="mr-2">MATERIA</span>
+                                                </div>
+                                            </th>
+                                            <th
+                                                class="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                                                <div class="flex cursor-pointer">
+                                                    <span class="mr-2">EGRESADO</span>
+                                                </div>
+                                            </th>
+                                            <th
+                                                class="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                                                <div class="flex cursor-pointer">
+                                                    <span class="mr-2">ALUMNO</span>
+                                                </div>
+                                            </th>
+                                            <th
+                                                class="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                                                <div class="flex cursor-pointer">
+                                                    <span class="mr-2">CALFICACIÓN</span>
                                                 </div>
                                             </th>
                                         </tr>
                                     </thead>
                                     <tbody class="bg-white divide-y divide-gray-200">
+                                        {% for kardex in kardex %}
                                         <tr>
                                             <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
-                                                <p>Apple MacBook Pro 13</p>
-                                                <p class="text-xs text-gray-400">PC & Laptop
-                                                </p>
+                                                <p>{{ kardex.id_kardex}}</p>
                                             </td>
                                             <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
-                                                <p>77</p>
+                                                <p>{{kardex.Matricula}}</p>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
+                                                <p>{{kardex.Historico}}</p>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
+                                                <p>{{kardex.Uni_Acreditacion_Materia_idi_Acreditacion_Mat}}</p>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
+                                                <p>{{kardex.Uni_Materias_id_materia}}</p>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
+                                                <p>{{kardex.Uni_Egresados_idUni_Egresados}}</p>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
+                                                <p>{{kardex.Uni_Alumnos_Matricula}}</p>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
+                                                <p>{{kardex.Uni_Calficacion_id_calficacion}}</p>
                                             </td>
                                             <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
                                                 <div class="flex text-green-500">
@@ -88,6 +129,7 @@
                                                 </div>
                                             </td>
                                         </tr>
+                                        {% endfor %}
                                     </tbody>
                                 </table>
                             </div>
