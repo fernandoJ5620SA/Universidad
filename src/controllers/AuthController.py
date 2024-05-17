@@ -67,7 +67,7 @@ def register_user():
 
         if password != password_confirm:
             msg = "ingrese correctamente la contraseña"
-            return render_template("register.html", msg=msg)
+            return render_template("Auth/Register.html", msg=msg)
         # Verificar que los correos sean unicos
         conn = connectionBD()
         cursor = conn.cursor()
@@ -76,7 +76,7 @@ def register_user():
 
         if result:
             msg = "El correo electronico ya está en uso"
-            return render_template("register.html", msg=msg)
+            return render_template("Auth/Register.html", msg=msg)
 
         password_hash = generate_password_hash(password)
 
