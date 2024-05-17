@@ -25,11 +25,23 @@ def auth_user():
                 session["email"] = account["email"]
                 session["role"] = account["fk_User_Role"]
 
+                def switch_case(role):
+                    match role:
+                        case 1:
+                            return print("Este es el caso 1")
+                        case 2:
+                            return print("Este es el caso 2")
+                        case 3:
+                            return print("Este es el caso 3")
+                        case _:
+                            return "A ocurrido un error: {}".format(e)
+
+                switch_case(session["role"])
+
                 msg = "Logged in successfully !"
-                print("Logged in successfully !")
+
                 return redirect(url_for("auth.login"))
             else:
-                print("Correo y contraseña incorrectos")
                 return render_template(
                     "Auth/login.html", msg="Correo y contraseña incorrectos"
                 )
