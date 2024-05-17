@@ -26,17 +26,17 @@ def auth_user():
                 session["role"] = account["fk_User_Role"]
 
                 def switch_case(role):
-                    if role == 1:
-                        return redirect(url_for("admin.admin_inicio"))
-                    elif role == 2:
-                        return print("2")
-                    elif role == 3:
-                        return print("3")
-                    else:
-                        return "A ocurrido un error:"
-
-                return switch_case(session["role"])
-
+                    match role:
+                        case 1:
+                            return redirect(url_for("admin.admin_inicio"))
+                        case 2:
+                            return print ("2")  # Supongamos que tienes esta ruta
+                        case 3:
+                            return print ("3")  # Supongamos que tienes esta ruta
+                        case _:
+                            return "A ocurrido un error:"
+                    
+                return switch_case(session["role"])  # Retorna el resultado del switch_case
                 # msg = "Logged in successfully !"
 
                 # return redirect(url_for("auth.login"))
