@@ -26,28 +26,27 @@ def auth_user():
                 session["role"] = account["fk_User_Role"]
 
                 def switch_case(role):
-                    match role:
-                        case 1:
-                            return print("Este es el caso 1")
-                        case 2:
-                            return print("Este es el caso 2")
-                        case 3:
-                            return print("Este es el caso 3")
-                        case _:
-                            return "A ocurrido un error: {}".format(e)
+                    if role == 1:
+                        return redirect(url_for("admin.admin_inicio"))
+                    elif role == 2:
+                        return print("2")
+                    elif role == 3:
+                        return print("3")
+                    else:
+                        return "A ocurrido un error:"
 
-                switch_case(session["role"])
+                return switch_case(session["role"])
 
-                msg = "Logged in successfully !"
+                # msg = "Logged in successfully !"
 
-                return redirect(url_for("auth.login"))
+                # return redirect(url_for("auth.login"))
             else:
                 return render_template(
                     "Auth/login.html", msg="Correo y contraseña incorrectos"
                 )
         except Exception as e:
             #  print("A ocurrido el error desdepues antes de ingresar", e)
-            msg = "A ocurrido un error: {}".format(e)
+            msg = "A ocurrido un error: {}"#.format(e)
         finally:
             cursor.close()
             conn.close()
