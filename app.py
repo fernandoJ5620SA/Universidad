@@ -6,6 +6,7 @@ from src.routes.admin import admin_bp
 from src.routes.profesor import profesor_bp
 from src.routes.alumnos import alumnos_bp
 
+
 # Crear una instancia de la aplicación Flask
 app = Flask(__name__, static_folder="src/static")
 app.secret_key = 'gil_se_la_come'
