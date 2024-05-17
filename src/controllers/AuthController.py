@@ -44,14 +44,14 @@ def auth_user():
         finally:
             cursor.close()
             conn.close()
-    return render_template("login.html", msg=msg)
+    return render_template("Auth/login.html", msg=msg)
 
 
 def salir():
     session.pop("loggedin", None)
     session.pop("User_id", None)
     session.pop("email", None)
-    return redirect(url_for("auth.login"))
+    return redirect(url_for("Auth/login.html"))
 
 
 def register_user():
@@ -100,7 +100,7 @@ def register_user():
 
             cursor.close()
             conn.close()
-            return render_template("login.html")
+            return render_template("Auth/login.html")
         except Exception as e:
             print("Error", e)
             conn.rollback()
