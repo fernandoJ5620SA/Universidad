@@ -11,6 +11,7 @@
 
         <div class="mt-5 sm:mx-auto sm:w-full sm:max-w-sm">
             <form class="space-y-6" action="{{url_for('auth.register')}}" method="POST">
+                <p>{{ msg }}</p>
                 <div>
                     <label for="name" class="block text-sm font-medium leading-6 text-gray-900">Nombre</label>
                     <div class="mt-2">
