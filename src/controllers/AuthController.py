@@ -26,6 +26,7 @@ def auth_user():
                 session["role"] = account["fk_User_Role"]
 
                 msg = "Logged in successfully !"
+                print("Logged in successfully !")
                 return redirect(url_for("auth.login"))
             else:
                 print("Correo y contraseña incorrectos")
