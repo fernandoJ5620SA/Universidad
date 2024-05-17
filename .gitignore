@@ -1,4 +1,2 @@
 .venv
-.env_py
-.env
 __pycache__
