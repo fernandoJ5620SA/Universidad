@@ -18,7 +18,6 @@ def auth_user():
         try:
             cursor.execute("SELECT * FROM useruni WHERE email = %s ", (email,))
             account = cursor.fetchone()
-            print(account)
 
             # session["User_id"] = True
             # print(session["User_id"])
@@ -31,13 +30,16 @@ def auth_user():
                 session["User_id"] = True
                 session["email"] = account["email"]
                 msg = "Logged in successfully !"
+                print("Logged in successfully !")
                 return redirect(url_for("login"))
             else:
+                print("Correo y contraseña incorrectos")
                 return render_template(
                     "Auth/login.html", msg="Correo y contraseña incorrectos"
                 )
         except Exception as e:
             #  print("A ocurrido el error desdepues antes de ingresar", e)
+            print("A ocurrido un error: {}".format(e))
             msg = "A ocurrido un error: {}".format(e)
         finally:
             cursor.close()
