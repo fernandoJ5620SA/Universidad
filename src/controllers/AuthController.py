@@ -44,7 +44,7 @@ def auth_user():
         finally:
             cursor.close()
             conn.close()
-    return render_template("Auth/Auth/Login.html", msg=msg)
+    return render_template("Auth/Login.html", msg=msg)
 
 
 def salir():
@@ -100,7 +100,7 @@ def register_user():
 
             cursor.close()
             conn.close()
-            return render_template("Auth/Auth/Login.html")
+            return render_template("Auth/Login.html")
         except Exception as e:
             print("Error", e)
             conn.rollback()
