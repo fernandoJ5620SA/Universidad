@@ -1,11 +1,11 @@
 from flask import Blueprint, render_template, flash, redirect, url_for, session
 from functools import wraps
 
-import src.controllers.Admin
-import src.controllers.Admin.Carrera
-import src.controllers.Admin.Egresados
-import src.controllers.Admin.Users
-import src.controllers.Admin.kardex
+import src.controllers.admin
+import src.controllers.admin.Carrera
+import src.controllers.admin.Egresados
+import src.controllers.admin.Users
+import src.controllers.admin.kardex
 import src.controllers.Profesor
 import src.controllers.Profesor.DatosProfesorController
 import src.controllers.alumnos.MateriasController
