@@ -76,16 +76,17 @@ def register_user():
         password_confirm = request.form["passwordconfirm"]
 
         if password != password_confirm:
-            msg = "ingrese correctamente la contraseña"
+            msg = "Ingrese correctamente la contraseña"
             return render_template("Auth/Register.html", msg=msg)
-        # Verificar que los correos sean unicos
+        
+        # Verificar que los correos sean únicos
         conn = connectionBD()
         cursor = conn.cursor()
         cursor.execute("SELECT * FROM useruni WHERE email = %s", (email,))
         result = cursor.fetchone()
 
         if result:
-            msg = "El correo electronico ya está en uso"
+            msg = "El correo electrónico ya está en uso"
             return render_template("Auth/Register.html", msg=msg)
 
         password_hash = generate_password_hash(password)
@@ -97,18 +98,23 @@ def register_user():
             last_user_id = cursor.fetchone()[0]
 
             if last_user_id is None:
-                new_user_ud = 1
+                new_user_id = 1
             else:
-                new_user_ud = last_user_id + 1
+                new_user_id = last_user_id + 1
 
-            sql = "INSERT INTO useruni(User_id, name, email, password) VALUES (%s,%s, %s, %s)"
-            cursor.execute(sql, (new_user_ud, name, email, password_hash))
+            sql = "INSERT INTO useruni(User_id, name, email, password) VALUES (%s, %s, %s, %s)"
+            cursor.execute(sql, (new_user_id, name, email, password_hash))
 
             conn.commit()
 
             cursor.close()
             conn.close()
-            return render_template("Auth/Login.html")
+            return redirect(url_for('auth.login'))  # Redirige al login después de un registro exitoso
         except Exception as e:
             print("Error", e)
             conn.rollback()
+            msg = "Error en el registro, por favor intenta de nuevo."
+            return render_template("Auth/Register.html", msg=msg)
+    else:
+        msg = "Por favor, completa el formulario."
+        return render_template("Auth/Register.html", msg=msg)
