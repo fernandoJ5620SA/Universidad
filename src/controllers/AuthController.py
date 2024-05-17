@@ -31,7 +31,7 @@ def auth_user():
                 session["email"] = account["email"]
                 msg = "Logged in successfully !"
                 print("Logged in successfully !")
-                return redirect(url_for("auth.login"))
+                return redirect(url_for("admin.admin_inicio"))
             else:
                 print("Correo y contraseña incorrectos")
                 return render_template(
@@ -44,7 +44,7 @@ def auth_user():
         finally:
             cursor.close()
             conn.close()
-    return render_template("Auth/Auth/Login.html", msg=msg)
+    return render_template("Auth/Login.html", msg=msg)
 
 
 def salir():
@@ -100,7 +100,7 @@ def register_user():
 
             cursor.close()
             conn.close()
-            return render_template("Auth/Auth/Login.html")
+            return render_template("Auth/Login.html")
         except Exception as e:
             print("Error", e)
             conn.rollback()
