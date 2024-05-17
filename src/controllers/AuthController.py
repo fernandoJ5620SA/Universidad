@@ -30,13 +30,15 @@ def auth_user():
                         case 1:
                             return redirect(url_for("admin.admin_inicio"))
                         case 2:
-                            return print ("2")  # Supongamos que tienes esta ruta
+                            return redirect(url_for("alumnos.alumnos"))
                         case 3:
-                            return print ("3")  # Supongamos que tienes esta ruta
+                            return redirect(url_for("profesor.Inicio"))
                         case _:
                             return "A ocurrido un error:"
-                    
-                return switch_case(session["role"])  # Retorna el resultado del switch_case
+
+                return switch_case(
+                    session["role"]
+                )  # Retorna el resultado del switch_case
                 # msg = "Logged in successfully !"
 
                 # return redirect(url_for("auth.login"))
@@ -46,7 +48,7 @@ def auth_user():
                 )
         except Exception as e:
             #  print("A ocurrido el error desdepues antes de ingresar", e)
-            msg = "A ocurrido un error: {}"#.format(e)
+            msg = "A ocurrido un error: {}"  # .format(e)
         finally:
             cursor.close()
             conn.close()
