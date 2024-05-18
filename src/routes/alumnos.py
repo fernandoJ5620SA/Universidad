@@ -9,7 +9,7 @@ alumnos_bp = Blueprint("alumnos", __name__, template_folder="../views")
 def require_alumnos(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
-        if "User_id" not in session or session.get("role") != 3:
+        if "User_id" not in session or session.get("role") != 2:
             flash(
                 "Acceso denegado: Solo administradores pueden acceder a esta sección."
             )
@@ -26,7 +26,7 @@ def require_alumnos(f):
 @require_alumnos
 def alumnos():
     materias = src.controllers.alumnos.MateriasController.obtener_materias()
-    return render_template("alumnos/inicio.html", materia = materias)
+    return render_template("alumnos/inicio.html", materia=materias)
 
 
 @alumnos_bp.route("/alumnos/materias")

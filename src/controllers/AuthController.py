@@ -29,9 +29,9 @@ def auth_user():
                     match role:
                         case 1:
                             return redirect(url_for("admin.admin_inicio"))
-                        case 3:
-                            return redirect(url_for("alumnos.alumnos"))
                         case 2:
+                            return redirect(url_for("alumnos.alumnos"))
+                        case 3:
                             return redirect(url_for("profesor.Inicio"))
                         case _:
                             return "A ocurrido un error:"
@@ -78,7 +78,7 @@ def register_user():
         if password != password_confirm:
             msg = "Ingrese correctamente la contraseña"
             return render_template("Auth/Register.html", msg=msg)
-        
+
         # Verificar que los correos sean únicos
         conn = connectionBD()
         cursor = conn.cursor()
@@ -109,7 +109,9 @@ def register_user():
 
             cursor.close()
             conn.close()
-            return redirect(url_for('auth.login'))  # Redirige al login después de un registro exitoso
+            return redirect(
+                url_for("auth.login")
+            )  # Redirige al login después de un registro exitoso
         except Exception as e:
             print("Error", e)
             conn.rollback()
