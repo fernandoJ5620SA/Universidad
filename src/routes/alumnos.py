@@ -41,7 +41,7 @@ def alumnos_kardex():
 
 
 @alumnos_bp.route("/alumnos/Horarios")
-def index():
+def alumnos_horarios():
     return render_template("alumnos/Horarios.html")
 
 

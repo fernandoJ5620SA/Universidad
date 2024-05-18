@@ -29,9 +29,9 @@ def auth_user():
                     match role:
                         case 1:
                             return redirect(url_for("admin.admin_inicio"))
-                        case 2:
-                            return redirect(url_for("alumnos.alumnos"))
                         case 3:
+                            return redirect(url_for("alumnos.alumnos"))
+                        case 2:
                             return redirect(url_for("profesor.Inicio"))
                         case _:
                             return "A ocurrido un error:"
@@ -102,7 +102,7 @@ def register_user():
             else:
                 new_user_id = last_user_id + 1
 
-            sql = "INSERT INTO useruni(User_id, name, email, password) VALUES (%s, %s, %s, %s)"
+            sql = "INSERT INTO useruni(User_id, name, email, password, fk_User_Role) VALUES (%s, %s, %s, %s, 3)"
             cursor.execute(sql, (new_user_id, name, email, password_hash))
 
             conn.commit()
