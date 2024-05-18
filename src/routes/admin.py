@@ -40,14 +40,14 @@ def admin_inicio():
 @admin_bp.route("/admin/carreras")
 @require_admin
 def carreras():
-    carreras = src.controllers.Admin.Carrera.usuarios()
+    carreras = src.controllers.admin.Carrera.usuarios()
     return render_template("admin/Carreras.html", carrera = carreras)
 
 
 @admin_bp.route("/admin/carga-academica")
 @require_admin
 def carga_academica():
-    kardex = src.controllers.Admin.kardex.kardex()
+    kardex = src.controllers.admin.kardex.kardex()
     return render_template("admin/CargasAcademicas.html", kardex = kardex)
 
 
@@ -55,7 +55,7 @@ def carga_academica():
 @admin_bp.route("/admin/usuarios")
 @require_admin
 def usuarios():
-    usuarios = src.controllers.Admin.Users.usuarios()
+    usuarios = src.controllers.admin.Users.usuarios()
     return render_template("admin/Usuarios.html", usuario = usuarios)
 
 
@@ -88,7 +88,7 @@ def alumnos_en_curso():
 @admin_bp.route("/admin/alumnos-agresados")
 @require_admin
 def alumnos_egresados():
-    egresados = src.controllers.Admin.Egresados.egresados()
+    egresados = src.controllers.admin.Egresados.egresados()
     return render_template("admin/Egresados.html", egresado = egresados)
 
 
