@@ -1,6 +1,7 @@
 from flask import Blueprint, redirect, render_template, session, flash, url_for
 from functools import wraps
 import src.controllers.alumnos.MateriasController
+import src.controllers.alumnos.KardexController
 
 # Crear un blueprint
 alumnos_bp = Blueprint("alumnos", __name__, template_folder="../views")
@@ -25,19 +26,20 @@ def require_alumnos(f):
 @alumnos_bp.route("/alumnos")
 @require_alumnos
 def alumnos():
-    materias = src.controllers.alumnos.MateriasController.obtener_materias()
-    return render_template("alumnos/inicio.html", materia=materias)
+    return render_template("alumnos/inicio.html")
 
 
 @alumnos_bp.route("/alumnos/materias")
 @require_alumnos
 def alumnos_materias():
-    return render_template("alumnos/materias.html")
+    materias = src.controllers.alumnos.MateriasController.obtener_materias()
+    return render_template("alumnos/materias.html", materia=materias)
 
 
 @alumnos_bp.route("/alumnos/Kardex")
 def alumnos_kardex():
-    return render_template("alumnos/Kardex.html")
+    kardex = src.controllers.alumnos.KardexController.obtener_Kardex()
+    return render_template("alumnos/Kardex.html", kardex=kardex)
 
 
 @alumnos_bp.route("/alumnos/Horarios")
