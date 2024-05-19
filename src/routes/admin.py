@@ -51,7 +51,7 @@ def admin_inicio():
 @require_admin
 def carreras():
     carreras = src.controllers.admin.Carrera.usuarios()
-    return render_template("admin/Carreras.html", carrera=carreras)
+    return render_template("admin/Carreras.html", carreras=carreras)
 
 
 # Crear carrera
@@ -77,6 +77,7 @@ def crear_carrera():
 def editar_carrera(id):
     if request.method == "POST":
         # Obtener datos del formulario
+        id_carrera = request.form.get("id")
         cve_carrera = request.form.get("cve_carrera")
         nombre_carrera = request.form.get("nombre_carrera")
         duracion = request.form.get("duracion")
@@ -85,7 +86,7 @@ def editar_carrera(id):
 
         # Actualizar carrera en la base de datos
         src.controllers.admin.Carrera.actualizar_carrera(
-            id, cve_carrera, nombre_carrera, duracion, requisitos_ad, creditos_gradu
+            id_carrera, cve_carrera, nombre_carrera, duracion, requisitos_ad, creditos_gradu
         )
 
         return redirect(url_for("admin.carreras"))

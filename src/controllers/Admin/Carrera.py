@@ -63,10 +63,11 @@ def actualizar_carrera(
 ):
     conexion_MySQLdb = connectionBD()
     mycursor = conexion_MySQLdb.cursor()
-    querySQL = (
-        "UPDATE universidad.uni_carreras SET Cve_Carrera = %s, Nombre_Carrera = %s, Duracion = %s, Requisitos_ad = %s, Creditos_gradu = %s "
-        "WHERE id_carrrera = %s"
-    )
+    querySQL = """
+        UPDATE universidad.uni_carreras
+        SET Cve_Carrera = %s, Nombre_Carrera = %s, Duracion = %s, Requisitos_ad = %s, Creditos_gradu = %s
+        WHERE id_carrrera = %s
+    """
     valores = (
         cve_carrera,
         nombre_carrera,
