@@ -96,14 +96,16 @@
                                             </td>
                                             <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
                                                 <div class="flex space-x-4">
-                                                    <a id="EditarCarrera" href="{{ url_for('admin.editar_carrera', id=carrera.id_carrrera) }}" class="text-blue-500 hover:text-blue-600">
+                                                    <a id="EditarCarrera_{{ carrera.id_carrrera }}" class="text-blue-500 hover:text-blue-600 cursor-pointer">
                                                         <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                                                         </svg>
                                                         <p>Edit</p>
                                                     </a>
+                                                        <!--{{ url_for('admin.editar_carrera', id=carrera.id_carrrera) }}-->
+                                                    
 
-                                                    <a href="" class="text-red-500 hover:text-red-600">
+                                                    <a href="{{ url_for('admin.eliminar_carrera_vista', id=carrera['id_carrrera']) }}" class="text-red-500 hover:text-red-600">
                                                         <svg xmlns="http://www.w3.org/2000/svg"
                                                             class="w-5 h-5 mr-1 ml-3" fill="none" viewBox="0 0 24 24"
                                                             stroke="currentColor">
@@ -119,7 +121,7 @@
 
 
                                         <!-- MODAL -->
-                                        <div class="main-modal fixed w-full h-full inset-0 z-50 overflow-hidden flex justify-center items-center animated fadeIn faster" style="background: rgba(0,0,0,.7); display: none;">
+                                        <div id="mainModal_{{ carrera.id_carrrera }}" class="main-modal fixed w-full h-full inset-0 z-50 overflow-hidden flex justify-center items-center animated fadeIn faster" style="background: rgba(0,0,0,.7); display: none;">
                                             <!-- Contenido del modal -->
                                             <div class="border border-teal-500 modal-container bg-white w-11/12 md:max-w-3xl mx-auto rounded shadow-lg z-50 overflow-y-auto">
                                                 <div class="modal-content py-4 text-left px-6">
@@ -183,43 +185,32 @@
 
 
 <script>
-    var agregarProductoBtn = document.getElementById("EditarCarrera");
-
-    agregarProductoBtn.addEventListener("click", function (event) {
-        event.preventDefault();
-        openModal();
-    });
-
-    const modal = document.querySelector('.main-modal');
-    const closeButton = document.querySelectorAll('.modal-close');
-
-    const modalClose = () => {
-        modal.classList.remove('fadeIn');
-        modal.classList.add('fadeOut');
-        setTimeout(() => {
-            modal.style.display = 'none';
-        }, 500);
-    }
-
-    const openModal = () => {
-        modal.classList.remove('fadeOut');
-        modal.classList.add('fadeIn');
-        modal.style.display = 'flex';
-    }
-
-    for (let i = 0; i < closeButton.length; i++) {
-
-        const elements = closeButton[i];
-
-        elements.onclick = (e) => modalClose();
-
-        modal.style.display = 'none';
-
-        window.onclick = function (event) {
-            if (event.target == modal) modalClose();
+    document.addEventListener("DOMContentLoaded", function() {
+        const editButtons = document.querySelectorAll("[id^='EditarCarrera_']");
+        editButtons.forEach(button => {
+            button.addEventListener("click", function() {
+                const carreraId = this.id.split('_')[1];
+                const modal = document.getElementById(`mainModal_${carreraId}`);
+                modal.style.display = "flex";
+            });
+        });
+    
+        const closeButtons = document.querySelectorAll(".modal-close");
+        closeButtons.forEach(button => {
+            button.addEventListener("click", function() {
+                const modal = this.closest(".main-modal");
+                modal.style.display = "none";
+            });
+        });
+    
+        window.onclick = function(event) {
+            if (event.target.classList.contains('main-modal')) {
+                event.target.style.display = "none";
+            }
         }
-    }       
+    });
 </script>
+
 
 
 {% endblock %}

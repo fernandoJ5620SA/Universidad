@@ -42,11 +42,11 @@ def usuarios():
 
 
 # Obtener carrera por ID (para usar en la actualización)
-def obtener_carrera_por_id(id_carrera):
+def obtener_carrera_por_id(id_carrrera):
     conexion_MySQLdb = connectionBD()
     mycursor = conexion_MySQLdb.cursor(dictionary=True)
     querySQL = "SELECT * FROM universidad.uni_carreras WHERE id_carrrera = %s"
-    valores = (id_carrera,)
+    valores = (id_carrrera,)
 
     mycursor.execute(querySQL, valores)
     carrera = mycursor.fetchone()
@@ -59,7 +59,7 @@ def obtener_carrera_por_id(id_carrera):
 
 # U
 def actualizar_carrera(
-    id_carrera, cve_carrera, nombre_carrera, duracion, requisitos_ad, creditos_gradu
+    id_carrrera, cve_carrera, nombre_carrera, duracion, requisitos_ad, creditos_gradu
 ):
     conexion_MySQLdb = connectionBD()
     mycursor = conexion_MySQLdb.cursor()
@@ -74,7 +74,7 @@ def actualizar_carrera(
         duracion,
         requisitos_ad,
         creditos_gradu,
-        id_carrera,
+        id_carrrera,
     )
 
     mycursor.execute(querySQL, valores)

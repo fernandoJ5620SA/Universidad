@@ -77,7 +77,6 @@ def crear_carrera():
 def editar_carrera(id):
     if request.method == "POST":
         # Obtener datos del formulario
-        id_carrera = request.form.get("id")
         cve_carrera = request.form.get("cve_carrera")
         nombre_carrera = request.form.get("nombre_carrera")
         duracion = request.form.get("duracion")
@@ -86,7 +85,7 @@ def editar_carrera(id):
 
         # Actualizar carrera en la base de datos
         src.controllers.admin.Carrera.actualizar_carrera(
-            id_carrera, cve_carrera, nombre_carrera, duracion, requisitos_ad, creditos_gradu
+            id, cve_carrera, nombre_carrera, duracion, requisitos_ad, creditos_gradu
         )
 
         return redirect(url_for("admin.carreras"))
@@ -103,8 +102,8 @@ def editar_carrera(id):
 # Eliminar carrera
 @admin_bp.route("/admin/eliminar_carrera/<int:id>")
 @require_admin
-def eliminar_carrera(id):
-    eliminar_carrera(id)
+def eliminar_carrera_vista(id):
+    src.controllers.admin.Carrera.eliminar_carrera(id)
     return redirect(url_for("admin.carreras"))
 
 
