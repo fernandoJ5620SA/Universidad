@@ -44,6 +44,7 @@ def auth_user():
                 session["User_id"] = True
                 session["email"] = account["email"]
                 session["role"] = account["fk_User_Role"]
+                session["name"] = account["name"]
 
                 def switch_case(role):
                     match role:

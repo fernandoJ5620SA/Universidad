@@ -11,6 +11,7 @@ from flask import (
 from functools import wraps
 
 import src.controllers.admin
+import src.controllers.admin.Bitacora
 import src.controllers.admin.Carrera
 import src.controllers.admin.Egresados
 import src.controllers.admin.Users
@@ -52,6 +53,12 @@ def admin_inicio():
 def carreras():
     carreras = src.controllers.admin.Carrera.usuarios()
     return render_template("admin/Carreras.html", carreras=carreras)
+
+@admin_bp.route("/admin/Bitacora")
+@require_admin
+def Bitacora():
+    Bitacora_Ad = src.controllers.admin.Bitacora.Bitacora_Ad()
+    return render_template("admin/Bitacora.html", Bitacora_Ad=Bitacora_Ad)
 
 
 # Crear carrera
@@ -120,9 +127,7 @@ def usuarios():
     usuarios = src.controllers.admin.Users.usuarios()
     return render_template("admin/Usuarios.html", usuario=usuarios)
 
-
 # //
-
 
 @admin_bp.route("/admin/profesores")
 @require_admin
@@ -130,15 +135,12 @@ def profesores():
     profesores = src.controllers.Profesor.DatosProfesorController.obtener_profesor()
     return render_template("admin/Profesores.html", profesor=profesores)
 
-
 @admin_bp.route("/admin/plazas")
 @require_admin
 def plazas():
     return render_template("admin/Plazas.html")
 
-
 # //
-
 
 @admin_bp.route("/admin/alumnos-en-curso")
 @require_admin
@@ -152,9 +154,7 @@ def alumnos_egresados():
     egresados = src.controllers.admin.Egresados.egresados()
     return render_template("admin/Egresados.html", egresado=egresados)
 
-
 # //
-
 
 @admin_bp.route("/admin/setting")
 @require_admin
