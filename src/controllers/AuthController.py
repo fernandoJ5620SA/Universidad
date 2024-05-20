@@ -102,7 +102,7 @@ def register_user():
             else:
                 new_user_id = last_user_id + 1
 
-            sql = "INSERT INTO useruni(User_id, name, email, password, fk_User_Role) VALUES (%s, %s, %s, %s, 3)"
+            sql = "INSERT INTO useruni(User_id, name, email, password, fk_User_Role) VALUES (%s, %s, %s, %s, 2)"
             cursor.execute(sql, (new_user_id, name, email, password_hash))
 
             conn.commit()
