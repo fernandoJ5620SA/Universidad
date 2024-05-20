@@ -216,7 +216,7 @@ ENGINE = InnoDB;
 -- Table Universidad.Bitacora
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS Universidad.Bitacora (
-  idBitacora INT NOT NULL,
+  idBitacora INT NOT NULL AUTO_INCREMENT,
   Cambio_act VARCHAR(45) NULL,
   Cambio_anterior VARCHAR(45) NULL,
   Fecha_hora VARCHAR(45) NULL,
@@ -248,12 +248,12 @@ END//
 DELIMITER ;
   DELIMITER //
 
-  CREATE TRIGGER carreras_after_delete
+  CREATE TRIGGER carreras_after_insert
   AFTER INSERT ON uni_carreras
   FOR EACH ROW
   BEGIN
       INSERT INTO Bitacora (Cambio_act, Fecha_hora, User)
-      VALUES ('Registro acgregado en carreras', NOW(), SUBSTRING(USER(), 1, INSTR(USER(), "@") - 1));
+      VALUES ('Registro agregado en carreras', NOW(), SUBSTRING(USER(), 1, INSTR(USER(), "@") - 1));
   END//
 
   DELIMITER ;
