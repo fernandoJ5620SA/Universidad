@@ -35,7 +35,7 @@ def alumnos_materias():
     return render_template("alumnos/materias.html")
 
 
-@alumnos_bp.route("/alumnos/Kardex")
+@alumnos_bp.route("/alumnos/Datos")
 def alumnos_kardex():
     return render_template("alumnos/Kardex.html")
 
