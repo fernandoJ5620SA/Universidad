@@ -103,9 +103,9 @@
 
                     <h1> Nombre del alumno </h1>
                     <div class="flex gap-3 whitespace-no-wrap text-sm normal-case">
-                        <p> Nombre </p>
-                        <p> Apellido PA </p>
-                        <p> Apellido MA </p>
+                        <p> {{ session["name"] }} </p>
+                        <!-- <p> Apellido PA </p>
+                        <p> Apellido MA </p> -->
                     </div>
                     <div class="flex gap-3">
                         <h1> Status : </h1>
@@ -128,7 +128,7 @@
                     </div>
                     <div class="py-3 grid gap-2">
                         <h1> E-Mail </h1>
-                        <p class="text-blue-600 text-sm underline normal-case"> ejemplo@ejemplo.com </p>
+                        <p class="text-blue-600 text-sm underline normal-case"> {{ session["email"] }} </p>
                     </div>
                     <div class="py-3 grid gap-2">
                         <h1> Telefono </h1>
