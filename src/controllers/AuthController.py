@@ -1,6 +1,11 @@
 from flask import render_template, request, redirect, url_for, flash, session
 from src.database.conexcionDB import connectionBD
 from werkzeug.security import generate_password_hash, check_password_hash
+import requests
+
+SITE_KEY = "6LclYtYpAAAAAIYCif1X8SHFqFkWpcVcp1uvf8Ud"
+SECRET_KEY = "6LclYtYpAAAAAPDlmQ_LKs19Nax1z7YRpwkEj0rT"
+VERIFY_URL = "https://www.google.com/recaptcha/api/siteverify"
 
 
 def auth_user():
@@ -19,7 +24,22 @@ def auth_user():
             cursor.execute("SELECT * FROM useruni WHERE email = %s ", (email,))
             account = cursor.fetchone()
 
-            if account and check_password_hash(account["password"], password):
+            # print(request.form)
+
+            secret_response = request.form["g-recaptcha-response"]
+            verify_response = requests.post(
+                url=f"{VERIFY_URL}?secret={SECRET_KEY}&response={secret_response}"
+            ).json()
+
+            print(verify_response)
+
+            if (
+                account
+                and check_password_hash(account["password"], password)
+                and verify_response["success"]
+                and verify_response["score"] > 0.5
+            ):
+
                 session["loggedin"] = True
                 session["User_id"] = True
                 session["email"] = account["email"]
@@ -45,7 +65,9 @@ def auth_user():
                 # return redirect(url_for("auth.login"))
             else:
                 return render_template(
-                    "Auth/login.html", msg="Correo y contraseña incorrectos"
+                    "Auth/login.html",
+                    msg="Correo y contraseña incorrectos",
+                    site_key=SITE_KEY,
                 )
         except Exception as e:
             #  print("A ocurrido el error desdepues antes de ingresar", e)
@@ -53,7 +75,7 @@ def auth_user():
         finally:
             cursor.close()
             conn.close()
-    return render_template("Auth/Login.html", msg=msg)
+    return render_template("Auth/Login.html", msg=msg, site_key=SITE_KEY)
 
 
 def salir():

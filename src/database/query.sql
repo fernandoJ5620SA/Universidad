@@ -216,7 +216,7 @@ ENGINE = InnoDB;
 -- Table Universidad.Bitacora
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS Universidad.Bitacora (
-  idBitacora INT NOT NULL,
+  idBitacora INT NOT NULL AUTO_INCREMENT,
   Cambio_act VARCHAR(45) NULL,
   Cambio_anterior VARCHAR(45) NULL,
   Fecha_hora VARCHAR(45) NULL,
@@ -224,6 +224,39 @@ CREATE TABLE IF NOT EXISTS Universidad.Bitacora (
   PRIMARY KEY (idBitacora))
 ENGINE = InnoDB;
 
+DELIMITER //
+
+CREATE TRIGGER carreras_after_update
+AFTER UPDATE ON uni_carreras
+FOR EACH ROW
+BEGIN
+    INSERT INTO Bitacora (Cambio_act, Fecha_hora, User)
+    VALUES ('Registro modificado en carreras', NOW(), SUBSTRING(USER(), 1, INSTR(USER(), "@") - 1));
+END//
+
+DELIMITER ;
+DELIMITER //
+
+CREATE TRIGGER carreras_after_delete
+AFTER DELETE ON uni_carreras
+FOR EACH ROW
+BEGIN
+    INSERT INTO Bitacora (Cambio_act, Fecha_hora, User)
+    VALUES ('Registro eliminado en carreras', NOW(), SUBSTRING(USER(), 1, INSTR(USER(), "@") - 1));
+END//
+
+DELIMITER ;
+  DELIMITER //
+
+  CREATE TRIGGER carreras_after_insert
+  AFTER INSERT ON uni_carreras
+  FOR EACH ROW
+  BEGIN
+      INSERT INTO Bitacora (Cambio_act, Fecha_hora, User)
+      VALUES ('Registro agregado en carreras', NOW(), SUBSTRING(USER(), 1, INSTR(USER(), "@") - 1));
+  END//
+
+  DELIMITER ;
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
