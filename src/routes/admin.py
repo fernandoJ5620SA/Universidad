@@ -113,7 +113,7 @@ def carga_academica():
     kardex = src.controllers.admin.kardex.kardex()
     return render_template("admin/CargasAcademicas.html", kardex=kardex)
 
-
+#R
 @admin_bp.route("/admin/usuarios")
 @require_admin
 def usuarios():
@@ -121,8 +121,34 @@ def usuarios():
     return render_template("admin/Usuarios.html", usuario=usuarios)
 
 
-# //
+# Actualizar usuario
+@admin_bp.route("/admin/usuarios/<int:User_id>",methods=["GET", "POST"])
+@require_admin
+def editar_usuario(User_id):
+    if request.method == "POST":
+        name = request.form.get("name")
+        email = request.form.get("email")
+        password = request.form.get("password")
+        fk_User_Role = request.form.get("fk_User_Role")
 
+        src.controllers.admin.Users.actualizar_usuario(
+            User_id, name, email, password, fk_User_Role
+        )
+
+        return redirect(url_for("admin.usuarios"))
+    
+    usuario = src.controllers.admin.Users.obtener_usuario_por_id(User_id)
+
+    if not usuario:
+        return jsonify({"error": "Usuario no encontrado"}), 404
+    return render_template("admin/Usuarios.html", usuario = usuario)
+
+#Eliminar usuario
+@admin_bp.route("/admin/usuarios/<int:User_id>", methods=["POST"])
+@require_admin
+def eliminar_usuario_vista(User_id):
+    src.controllers.admin.Users.eliminar_usuario(User_id)
+    return redirect(url_for("admin.usuarios"))
 
 @admin_bp.route("/admin/profesores")
 @require_admin
