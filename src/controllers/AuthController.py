@@ -54,6 +54,8 @@ def auth_user():
                             return redirect(url_for("alumnos.alumnos"))
                         case 3:
                             return redirect(url_for("profesor.Inicio"))
+                        case 0:
+                            return redirect(url_for("admin.Sleep"))
                         case _:
                             return "A ocurrido un error:"
 

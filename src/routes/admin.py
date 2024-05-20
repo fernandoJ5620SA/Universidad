@@ -188,3 +188,9 @@ def alumnos_egresados():
 @require_admin
 def setting():
     return render_template("admin/Setting.html")
+
+@admin_bp.route("/Sleep")
+def Sleep():
+    return render_template("Auth/NoAsignado.html")
+
+
