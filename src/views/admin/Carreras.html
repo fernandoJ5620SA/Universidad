@@ -6,22 +6,48 @@
     <div class="grid gap-2 grid-cols-1 lg:grid-cols-1">
         <div class="bg-white p-4 shadow-lg rounded-lg">
 
-            <h1 class="font-bold text-base">Carreras</h1>
+            <div class="relative">
+                <h1 class="font-bold text-base mb-12">Carreras</h1>
+                <button id="Mostrar" class=" absolute top-1 right-1 py-1 px-3 w-[150px] bg-blue-500 text-gray-100 text-ml rounded-lg hover:bg-blue-300 uppercase"> ingresar nueva carrera </button>
+            </div>
+
+            <dialog id="dialog" class="p-5 absolute zindex-50 border-2 border-blue-500 rounded-lg">
+                <div class="relative">
+                    <button id="cerrarDialogo" class="absolute top-2 right-3 bg-blue-500 text-center font-bold text-gray-100 rounded-full h-7 w-7 hover:bg-blue-300"> X </button>
+                    <form action="{{ url_for('admin.crear_carrera') }}" method="POST" class="mb-4">
+                        <h2 class="text-2xl mb-6 underline">Ingrese los siguientes datos</h2>
+                        <div class="grid grid-cols-2 gap-5">
+                            <div>
+                                <p class="text-blue-500 font-medium px-1 pb-1">Identificador de carrera</p>
+                                <input type="text" class="px-2 py-2 border-gray-300 border-2 rounded-md" name="id_carrrera" placeholder="Numero" required>
+                            </div>
+                            <div>
+                                <p class="text-blue-500 font-medium px-1 pb-1">Clave de carrera</p>
+                                <input type="text" class="px-2 py-2 border-gray-300 border-2 rounded-md" name="cve_carrera" placeholder="LITDS, LESI, ..." required>
+                            </div>
+                            <div>
+                                <p class="text-blue-500 font-medium px-1 pb-1">Nombre</p>
+                                <input type="text" class="px-2 py-2 border-gray-300 border-2 rounded-md" name="nombre_carrera" placeholder="Texto" required>
+                            </div>
+                            <div>
+                                <p class="text-blue-500 font-medium px-1 pb-1">Duracion</p>
+                                <input type="text" class="px-2 py-2 border-gray-300 border-2 rounded-md" name="duracion" placeholder="Num. Semanas" required>
+                            </div>
+                            <div>
+                                <p class="text-blue-500 font-medium px-1 pb-1">Requisito de admision</p>
+                                <input type="text" class="px-2 py-2 border-gray-300 border-2 rounded-md" name="requisitos_ad" placeholder="Requisitos" required>
+                            </div>
+                            <div>
+                                <p class="text-blue-500 font-medium px-1 pb-1">Creditos totales</p>
+                            <input type="text" class="px-2 py-2 border-gray-300 border-2 rounded-md" name="creditos_gradu" placeholder="Numero" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="mt-4 bg-blue-500 text-white px-4 py-2 rounded">Agregar Carrera</button>
+                    </form>
+                </div>
+            </dialog>
 
             <div class="mt-4">
-                <form action="{{ url_for('admin.crear_carrera') }}" method="POST" class="mb-4">
-                    <input type="hidden" name="" value="">
-                    <div class="grid grid-cols-2 gap-4">
-                        <input type="text" name="id_carrrera" placeholder="Identificador de la carrera" required>
-                        <input type="text" name="cve_carrera" placeholder="Clave de Carrera" required>
-                        <input type="text" name="nombre_carrera" placeholder="Nombre" required>
-                        <input type="text" name="duracion" placeholder="Duración" required>
-                        <input type="text" name="requisitos_ad" placeholder="Requisito de Admision" required>
-                        <input type="text" name="creditos_gradu" placeholder="Creditos Totales" required>
-                    </div>
-                    <button type="submit" class="mt-4 bg-blue-500 text-white px-4 py-2 rounded">Agregar Carrera</button>
-                </form>
-
                 <div class="flex flex-col">
                     <div class="-my-2 overflow-x-auto">
                         <div class="py-2 align-middle inline-block min-w-full">
@@ -180,9 +206,21 @@
     </div>
 </div>
 
+<script>
+    // Obtener el botón y el diálogo por su ID
+    var boton = document.getElementById("Mostrar");
+    var dialogo = document.getElementById("dialog");
 
+    // Cuando se hace clic en el botón, mostrar el diálogo
+    boton.addEventListener("click", function() {
+        dialogo.style.display = "block";
+    });
 
-
+    // Cuando se hace clic en el botón de cerrar, ocultar el diálogo
+    document.getElementById("cerrarDialogo").addEventListener("click", function() {
+        dialogo.style.display = "none";
+    });
+</script>
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {
